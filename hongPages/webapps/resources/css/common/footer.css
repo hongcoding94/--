@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+ #footer{
+            width:100%; 
+            background-color: gray;
+         }
+
+         #footerBox{
+             color: lightcyan;
+             margin:atuo;
+             text-align: center;
+             font-family: 'Courier New', Courier, monospace;
+         }
