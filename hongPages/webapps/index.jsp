@@ -31,23 +31,17 @@
 <body>
 
     <!-- 간판 사진 넣는 부분 -->
-    <img id="index_img1" src="/hongPages/resources/images/index/code_programming_text_140050_1280x1024.jpg" alt="간판입니다.">
+    <img id="index_img1" src="/hongPages/resources/images/index/code_programming.jpg" alt="간판입니다.">
     <p id="pan1"><b>진홍쓰의 홈페이지</b></p>  
 
     <!-- common 네비 부분 -->
     <!-- 나중에 jsp 스크립트로 잡을 예정 -->
-    <div class="row">
-        <aside class="col-1 border"></aside>
-        <section class="col-10 border">
-            네비부분
-        </section>
-        <aside class="col-1 border"></aside>
-    </div>
+    <%@include file="views/common/header.jsp"%>
 
     <div class="row">
-        <aside class="col-1 border"></aside>
-        <section class="col-10 border">
-            <p id="pan2"><b>어서오세요!<br>진홍쓰의 홈페이지에 오신 것을 환영합니다.</b></p>
+        <aside class="col-1"></aside>
+        <section class="col-10">
+            <p id="pan2" style="z-index:-1;"><b>어서오세요!<br>진홍쓰의 홈페이지에 오신 것을 환영합니다.</b></p>
               <!-- 시계 부분 --> 
               <div class="row">
                 <div class="col">
@@ -56,7 +50,7 @@
                 </div>
             </div>
         </section>
-        <aside class="col-1 border"></aside>
+        <aside class="col-1"></aside>
     </div>
 
     <!-- swiper 넣는 것은 어떨까? -->
@@ -65,10 +59,10 @@
           <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/Idontno.jpg)"></div>
           <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/itary.jpg)"></div>
           <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/siwon.jpg)"></div>
-          <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/code_programming_text_140050_1280x1024.jpg)"></div>
+          <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/code_programming.jpg)"></div>
+          <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/castle.jpg)"></div>
+          <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/bridge.jpg)"></div>
         <!-- 
-          <div class="swiper-slide" style="background-image:url(./images/nature-5.jpg)"></div>
-          <div class="swiper-slide" style="background-image:url(./images/nature-6.jpg)"></div>
           <div class="swiper-slide" style="background-image:url(./images/nature-7.jpg)"></div>
           <div class="swiper-slide" style="background-image:url(./images/nature-8.jpg)"></div>
           <div class="swiper-slide" style="background-image:url(./images/nature-9.jpg)"></div>
