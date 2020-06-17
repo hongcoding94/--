@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
-    <link rel="stylesheet" href="/hongPages/resources/css/common/header.css">
     
 <header>
 
 <ul class="nav">
     <li> <a href="#">Home</a></li>
-
+	&nbsp; &nbsp; &nbsp; &nbsp;
     <li><a href="#">프로그래밍 공부자료</a>
         <ul>
             <li><a href="#" target="_black">HTML5</a></li>

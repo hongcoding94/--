@@ -9,7 +9,7 @@ var myVar = setInterval(myTimer, 1000);
 function myTimer() {
   var d = new Date();
   var t = d.toLocaleTimeString();
-  document.getElementById("mo").innerHTML = t;}
+  document.getElementById("mo").innerHTML = t;};
 
 function showClock()
 {
@@ -31,24 +31,5 @@ function showClock()
     
     divClock.innerText=msg;
     
-    setTimeout(showClock,1000);}
-
-//swiper
-var swiper = new Swiper('.swiper-container', {
-      effect: 'coverflow',
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: 'auto',
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows : true,
-      },
-
-      pagination: {
-        el: '.swiper-pagination',
-      },
-    });
+    setTimeout(showClock,1000);};
 

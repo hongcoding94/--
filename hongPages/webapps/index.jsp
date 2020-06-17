@@ -12,20 +12,47 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- js min -->
-    
-    
+<!--     <script src="/resources/js/jquery-3.5.1.min.js"></script>
+ -->    
     <!-- 부트스트랩 js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+	<!-- index의 각각 css와 js 위치 -->
+ 	<link rel="stylesheet" href="/hongPages/resources/css/index/index_css.css">
+    <script src="/hongPages/resources/js/index/index_js.js"></script>
+
     <!-- swiper dmo-->
     <link rel="stylesheet" href="/hongPages/resources/css/swiper.min.css">
     <script src="/hongPages/resources/js/swiper.min.js"></script>
 
-	<!-- index의 각각 css와 js 위치 -->
- 	<link rel="stylesheet" href="/hongPages/resources/css/index/index_css.css">
-    <script src="/hongPages/resources/js/index/index_js.js"></script>
+	<!--  header css -->
+    <link rel="stylesheet" href="/hongPages/resources/css/common/header.css">
+
+    <style>
+    /*Swiper*/
+        body {
+        background: #fff;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+        }
+        .swiper-container {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        }
+        .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+
+        }
+    </style>
     
 </head>
 <body>
@@ -37,7 +64,10 @@
     <!-- common 네비 부분 -->
     <!-- 나중에 jsp 스크립트로 잡을 예정 -->
     <%@include file="views/common/header.jsp"%>
-
+<!DOCTYPE html>
+<html lang="ko">
+    <link rel="stylesheet" href="/hongPages/resources/css/common/header.css">
+    
     <div class="row">
         <aside class="col-1"></aside>
         <section class="col-10">
@@ -95,6 +125,28 @@
         <aside class="col-1 border"></aside>
     </div>
 
+    
+  <script>
+  //swiper
+  var swiper = new Swiper('.swiper-container', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows : true,
+        },
+
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      });
+
+    </script>
     
     <!-- common 바닥 부분 -->
   <%@include file="views/common/footer.jsp"%>
