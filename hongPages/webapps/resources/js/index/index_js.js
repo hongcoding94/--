@@ -33,3 +33,14 @@ function showClock()
     
     setTimeout(showClock,1000);};
 
+// openVideo 실행시 video의 show,hide 대한 jquery
+    function openvideo(){
+    	if($("#video").css("display") == "none"){
+    		$("#video").show();
+    		// conslo.log(this); --> this로 했을 때 찾지 못한다.
+    	}else{
+    		$("#video").hide();
+    	};
+    }
+
+    

@@ -62,7 +62,6 @@
     background: coral;
     font-family: serif;
     font-size: 14px;
-    z-index: 300;
 }
 
 .nav li:hover ul{

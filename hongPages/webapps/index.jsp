@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 
 
-<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +14,7 @@
 <!--     <script src="/resources/js/jquery-3.5.1.min.js"></script>
  -->    
     <!-- 부트스트랩 js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
@@ -29,7 +28,12 @@
 
 	<!--  header css -->
     <link rel="stylesheet" href="/hongPages/resources/css/common/header.css">
-
+    
+    <link rel="stylesheet" href="/hongPages/resources/css/common/header.css">
+    
+    <!-- kakao 지도 API -->
+<!-- 	<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=9037a93d86da722dcec43acbc7096741"></script> -->
+	<<script type="text/javascript" src="/hongPages/resources/js/kakao-map.js"></script>
     <style>
     /*Swiper*/
         body {
@@ -64,13 +68,11 @@
     <!-- common 네비 부분 -->
     <!-- 나중에 jsp 스크립트로 잡을 예정 -->
     <%@include file="views/common/header.jsp"%>
-<!DOCTYPE html>
-<html lang="ko">
-    <link rel="stylesheet" href="/hongPages/resources/css/common/header.css">
-    
+
     <div class="row">
         <aside class="col-1"></aside>
         <section class="col-10">
+        <br />
             <p id="pan2" style="z-index:-1;"><b>어서오세요!<br>진홍쓰의 홈페이지에 오신 것을 환영합니다.</b></p>
               <!-- 시계 부분 --> 
               <div class="row">
@@ -92,37 +94,50 @@
           <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/code_programming.jpg)"></div>
           <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/castle.jpg)"></div>
           <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/bridge.jpg)"></div>
-        <!-- 
-          <div class="swiper-slide" style="background-image:url(./images/nature-7.jpg)"></div>
-          <div class="swiper-slide" style="background-image:url(./images/nature-8.jpg)"></div>
-          <div class="swiper-slide" style="background-image:url(./images/nature-9.jpg)"></div>
-          <div class="swiper-slide" style="background-image:url(./images/nature-10.jpg)"></div>
-        -->
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
       </div>
       
-    <!-- common 몸통 부분 -->
+      
+    <!--  몸통 part.1 부 -->
+      
+   	<div class="row">
+   	<aside class="col-1"></aside>
+   	<section class="col-10" style=" text-align: center;">
+   		<br />
+   		<input type="button" id="btnVideo" onclick="openvideo()" value="버티고 그리고 이겨라"> 
+   		<br />(눌러보세요)
+   		<br /> <br />
+   		<iframe width="1000px" height="600px" id="video"
+   		src="https://www.youtube.com/embed/RPSp1TE6R2s" frameborder="0" style="display: none;"
+   		allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   		
+   		<br /> <br /> <br />
+   	</section>
+   	<aside class="col-1"></aside>
+   	</div>  
+      
+    <!--  몸통part.2 부분 -->
     <div class="row">
-        <aside class="col-1 border"></aside>
-        <section class="col-10 border">
-          
-            
-        <ul>
-            <p>구현 하고 싶은 것들이 무엇이 있을까?</p>
-            <li>swiper[회전목마]</li>
-            <li>지도api</li>
-            <li>날씨api</li>
-            <li>댓글기능</li>
-            <ul>네비
-                <li>지금까지 공부한 내용정리</li>
-                <li>게시판</li>
-                <li>내용 일지</li>
-            </ul>
-        </ul>
+        <aside class="col-1"></aside>
+        <section class="col-10" style="margin:atuo;">
+        <div class="row">
+       		<div class="col-6">
+       			<div id="map" style="width:500px;height:400px; margin:auto;"></div>
+       		</div>
+       		<div class="col-4" style="margin:auto;">
+       				<h2>KH 정보 교육원</h2>
+       				<p class="pen">연락처 : 02) 1544 - 9970</p>
+       				<p class="pen">주소 : 서울특별시 강남구 강남구 테헤란로14길 6</p>
+       				<p class="pen">영업 시간 : AM 09:00 - PM 22:00</p>
+       				<p class="pen">지도강사님 : 유정훈 강사님</p>
+       				<p class="pen">제작자 : 정진홍 수강생</p>
+       				<p class="pen">강의실 : 352강의실</p>
+       		</div>
+       		</div>
         </section>
-        <aside class="col-1 border"></aside>
+        <aside class="col-1"></aside>
     </div>
 
     
@@ -139,13 +154,41 @@
           depth: 100,
           modifier: 1,
           slideShadows : true,
+          
         },
 
         pagination: {
           el: '.swiper-pagination',
         },
       });
-
+  
+  //swiper를 자동으로 돌아가게 하는 구조
+  var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 5,
+      effect: 'coverflow',
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+      },
+      navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+      },    
+  });
+  
+	
+   // 지도 API
+   var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+   var options = { //지도를 생성할 때 필요한 기본 옵션
+	center: new kakao.maps.LatLng(37.499220, 127.032796), //지도의 중심좌표. 
+	level: 3 //지도의 레벨(확대, 축소 정도)
+	};
+   
+   // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+   var map = new kakao.maps.Map(container, options); 
+   
     </script>
     
     <!-- common 바닥 부분 -->

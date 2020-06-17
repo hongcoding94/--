@@ -44,3 +44,15 @@
         position: fixed;
         }
         
+        .pen{
+        	font-family:'Times New Roman', Times, serif;
+        	font-size: 20px;
+        }
+        
+        #btnVideo{
+        	font-family:'Times New Roman', Times, serif;
+        	font-size: 40px;
+        	color:black;
+            background-color: white;
+            border: 0px;
+        }

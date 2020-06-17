@@ -5,10 +5,10 @@
 
 <ul class="nav">
     <li> <a href="#">Home</a></li>
-	&nbsp; &nbsp; &nbsp; &nbsp;
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     <li><a href="#">프로그래밍 공부자료</a>
         <ul>
-            <li><a href="#" target="_black">HTML5</a></li>
+            <li ><a href="#" target="_black">HTML5</a></li>
             <li><a href="#" target="_black">CSS3</a></li>
             <li><a href="#" target="_black">JavaScript</a></li>
             <li><a href="#" target="_black">JQuery</a></li>
