@@ -29,11 +29,10 @@
 	<!--  header css -->
     <link rel="stylesheet" href="/hongPages/resources/css/common/header.css">
     
-    <link rel="stylesheet" href="/hongPages/resources/css/common/header.css">
     
     <!-- kakao 지도 API -->
 <!-- 	<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=9037a93d86da722dcec43acbc7096741"></script> -->
-	<<script type="text/javascript" src="/hongPages/resources/js/kakao-map.js"></script>
+	<script type="text/javascript" src="/hongPages/resources/js/kakao-map.js"></script>
     <style>
     /*Swiper*/
         body {
@@ -44,18 +43,20 @@
         margin: 0;
         padding: 0;
         }
+        
         .swiper-container {
         width: 100%;
         padding-top: 50px;
         padding-bottom: 50px;
         }
+        
         .swiper-slide {
         background-position: center;
         background-size: cover;
         width: 300px;
         height: 300px;
-
         }
+        
     </style>
     
 </head>
@@ -87,7 +88,7 @@
 
     <!-- swiper 넣는 것은 어떨까? -->
     <div class="swiper-container">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper" style="height:300px">
           <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/Idontno.jpg)"></div>
           <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/itary.jpg)"></div>
           <div class="swiper-slide" style="background-image:url(/hongPages/resources/images/index/siwon.jpg)"></div>
@@ -156,27 +157,33 @@
           slideShadows : true,
           
         },
-
+		autoplay : {
+			delay : 2500
+		}, 
         pagination: {
           el: '.swiper-pagination',
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
       });
   
   //swiper를 자동으로 돌아가게 하는 구조
-  var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 5,
-      effect: 'coverflow',
-      centeredSlides: true,
-      slidesPerView: 'auto',
-      autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-      },
-      navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-      },    
-  });
+  //var swiper = new Swiper('.swiper-container', {
+  //    slidesPerView: 5,
+  //    effect: 'coverflow',
+  //   centeredSlides: true,
+  //    slidesPerView: 'auto',
+  //    autoplay: {
+  //        delay: 2500,
+  //        disableOnInteraction: false,
+  //    },
+  //    navigation: {
+  //        nextEl: '.swiper-button-next',
+  //        prevEl: '.swiper-button-prev',
+  //    },    
+  //});
   
 	
    // 지도 API

@@ -41,6 +41,9 @@ function showClock()
     	}else{
     		$("#video").hide();
     	};
-    }
+    };
 
-    
+// 어서오세요! 부분타이머 후 사라지
+    setTimeout(function(){
+    	$('#pan2').hide("slow")
+    },5000);
