@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% 
+	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); 
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	Search s = (Search)request.getAttribute("s"); 
+	int listCount = pi.getListCount();
+	int currentPage = pi.getCurrentPage();
+	int maxPage = pi.getMaxPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+%>
 
 <!DOCTYPE html>
 <html>
@@ -29,7 +39,6 @@
 <!-- index의 각각 css와 js 위치 -->
 <link rel="stylesheet"
 	href="/hongPages/resources/css/index/index_css.css">
-<script src="/hongPages/resources/js/index/index_js.js"></script>
 
 <!-- swiper dmo-->
 <link rel="stylesheet" href="/hongPages/resources/css/swiper.min.css">
@@ -37,6 +46,7 @@
 
 <!--  header css -->
 <link rel="stylesheet" href="/hongPages/resources/css/common/header.css">
+
 
 <style>
 	.column{
@@ -50,13 +60,6 @@
 </head>
 <body>
 
-	<!-- 간판 사진 넣는 부분 -->
-	<img id="index_img1"
-		src="/hongPages/resources/images/index/code_programming.jpg"
-		alt="간판입니다.">
-	<p id="pan1">
-		<b>진홍쓰의 홈페이지</b>
-	</p>
 
 	<!-- common 네비 부분 -->
 	<!-- 나중에 jsp 스크립트로 잡을 예정 -->
@@ -66,7 +69,6 @@
 		<aside class="col-2"></aside>
 		<section class="col-8">
 			<br /> <br />
-			
 			<h2 style="text-align: center;">개발자 노트</h2>
 			<br />
 		<div class="row">
@@ -79,7 +81,15 @@
 				<th width="100px">조회수</th>
 				<th width="150px">작성일</th>
 			</tr>
-		 
+			 <% for(Notice n : list){ %>
+			<tr>
+				 <td height="40px" align="center"><%= n.getNno() %></td>
+           		 <td height="40px" align="center"><%= n.getNtitle() %></td>
+           	     <td height="40px" align="center"><%= n.getNwriter() %></td>
+           		 <td height="40px" align="center"><%= n.getNcount() %></td>
+           		 <td height="40px" align="center"><%= n.getNdate() %></td>
+			</tr>
+			<% } %>
 		</table>
          </div>
 	</div>

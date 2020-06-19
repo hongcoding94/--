@@ -3,10 +3,6 @@
 */
 @charset "UTF-8";
 
-        #index_img1{
-            height: 300px;
-            width: 100%;
-        }
         #pan1{
             position:absolute;  
             margin-top: -10%;         

@@ -3,9 +3,20 @@
     
 <header>
 
+
+    <!-- 간판 사진 넣는 부분 -->
+    <a href="/hongPages/index.jsp">
+    <img id="index_img1" src="/hongPages/resources/images/index/code_programming.jpg" alt="간판입니다.">
+    </a>
+    <p id="pan1"><b>진홍쓰의 홈페이지</b></p>  
+
+
 <ul class="nav">
-    <li> <a href="/hongPages/index.jsp">Home</a></li>
-	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <li> <a href="/hongPages/index.jsp">Home</a></li> 
+    &nbsp; &nbsp; &nbsp; &nbsp; 
+    &nbsp; &nbsp; &nbsp; &nbsp; 
+    &nbsp; &nbsp; &nbsp; &nbsp; 
+    &nbsp; &nbsp; &nbsp; &nbsp;
 
     <li> <a href="/hongPages/views/notice/notice.jsp">개발자 노트</a>
         <ul>

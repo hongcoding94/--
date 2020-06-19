@@ -55,16 +55,20 @@
         background-size: cover;
         width: 300px;
         height: 300px;
+        /* 이미지 확대 */
+        animation: trans2;
+		animation-duration: 3s;
+		animation-iteration-count: 1;
+		transition-duration: 0.2s;
+		/* transition-timing-function : ease-in; */
+		transition-timing-function: ease-out;
+		border-radius: 7%;
         }
         
     </style>
     
 </head>
 <body>
-
-    <!-- 간판 사진 넣는 부분 -->
-    <img id="index_img1" src="/hongPages/resources/images/index/code_programming.jpg" alt="간판입니다.">
-    <p id="pan1"><b>진홍쓰의 홈페이지</b></p>  
 
     <!-- common 네비 부분 -->
     <!-- 나중에 jsp 스크립트로 잡을 예정 -->
@@ -107,7 +111,7 @@
    	<aside class="col-1"></aside>
    	<section class="col-10" style=" text-align: center;">
    		<br />
-   		<input type="button" id="btnVideo" onclick="openvideo()" value="버티고 그리고 이겨라"> 
+   		<input type="button" id="btnVideo" onclick="openvideo()" value="Just do it!"> 
    		<br />(눌러보세요)
    		<br /> <br />
    		<iframe width="1000px" height="600px" id="video"
