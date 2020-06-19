@@ -35,7 +35,7 @@
 	<%@include file="/views/common/header.jsp" %>
 
 <div class="row">
-<form action="<%= request.getContextPath() %>/nInsert.no" method="post">
+<form action="<%= request.getContextPath() %>/nInsert.do" method="post">
 				<table align="center">
 					<tr>
 						<td>제목 </td>

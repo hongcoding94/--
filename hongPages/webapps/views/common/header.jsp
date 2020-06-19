@@ -15,8 +15,7 @@
     <li> <a href="/hongPages/index.jsp">Home</a></li> 
     &nbsp; &nbsp; &nbsp; &nbsp; 
     &nbsp; &nbsp; &nbsp; &nbsp; 
-    &nbsp; &nbsp; &nbsp; &nbsp; 
-    &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp;
 
     <li> <a href="/hongPages/views/notice/notice.jsp">개발자 노트</a>
         <ul>

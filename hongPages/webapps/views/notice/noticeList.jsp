@@ -49,7 +49,7 @@
 
 
 <style>
-	.column{
+	.column{q
 		text-align:center;
 		font-size:20px;
 		font-family:'Times New Roman', Times, serif;
