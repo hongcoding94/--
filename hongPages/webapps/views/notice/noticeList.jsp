@@ -1,15 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% 
-	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); 
-	PageInfo pi = (PageInfo)request.getAttribute("pi");
-	Search s = (Search)request.getAttribute("s"); 
-	int listCount = pi.getListCount();
-	int currentPage = pi.getCurrentPage();
-	int maxPage = pi.getMaxPage();
-	int startPage = pi.getStartPage();
-	int endPage = pi.getEndPage();
-%>
 
 <!DOCTYPE html>
 <html>
@@ -49,7 +39,7 @@
 
 
 <style>
-	.column{q
+	.column{
 		text-align:center;
 		font-size:20px;
 		font-family:'Times New Roman', Times, serif;
@@ -71,28 +61,43 @@
 			<br /> <br />
 			<h2 style="text-align: center;">개발자 노트</h2>
 			<br />
-		<div class="row">
-    	<div class="mx-auto" id= "tableArea">
-        <table id="listArea">
-			<tr class="column">
-				<th width="100px">글번호</th>
-				<th width="300px">글제목</th>
-				<th width="150px">작성자</th>
-				<th width="100px">조회수</th>
-				<th width="150px">작성일</th>
-			</tr>
-			 <% for(Notice n : list){ %>
+		<div class="outer">
+		<br>
+		<h2 align="center">공지사항</h2>
+		<div class="tableArea">
+			<table align="center" id="listArea">
 			<tr>
-				 <td height="40px" align="center"><%= n.getNno() %></td>
-           		 <td height="40px" align="center"><%= n.getNtitle() %></td>
-           	     <td height="40px" align="center"><%= n.getNwriter() %></td>
-           		 <td height="40px" align="center"><%= n.getNcount() %></td>
-           		 <td height="40px" align="center"><%= n.getNdate() %></td>
+				<th>글번호</th>
+				<th width="300px">글제목</th>
+				<th width="100px">작성자</th>
+				<th>조회수</th>
+				<th width="100px">작성일</th>
+			</tr>
+			<% for(Notice n : list){ %>
+			<tr>
+				<td><%= n.getNno() %></td>
+				<td><%= n.getNtitle() %></td>
+				<td><%= n.getNwriter() %></td>
+				<td><%= n.getNcount() %></td>
+				<td><%= n.getNdate() %></td>
 			</tr>
 			<% } %>
 		</table>
-         </div>
-	</div>
+		</div>
+		<div class="searchArea" align="center">
+			<select id="searchCondition" name="searchCondition">
+				<option value="">---</option>
+				<option value="writer">작성자</option>
+				<option value="title">제목</option>
+				<option value="content">내용</option>
+			</select>
+			<input type="search" id="keyword" placeholder="키워드를 입력하세요!"> 
+			<button type="button" onclick="search();">검색하기</button>
+			<% if(m != null && m.getUserId().equals("admin")){ %>
+				<button onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
+			<% } %>
+			</div>
+			</div>
 			
 		</section>
 		<aside class="col-2"></aside>

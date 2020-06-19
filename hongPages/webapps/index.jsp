@@ -33,6 +33,7 @@
     <!-- kakao 지도 API -->
 <!-- 	<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=9037a93d86da722dcec43acbc7096741"></script> -->
 	<script type="text/javascript" src="/hongPages/resources/js/kakao-map.js"></script>
+    
     <style>
     /*Swiper*/
         body {

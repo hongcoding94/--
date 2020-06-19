@@ -45,7 +45,7 @@
 					<tr>
 						<td>작성자 </td>
 						<td>
-							<input type="text" name="writer" value="<%=m.getUserid() %>"readonly="readonly" >
+							<input type="text" name="writer" value="작성"readonly="readonly" >
 						</td>
 					</tr>
 					<tr>

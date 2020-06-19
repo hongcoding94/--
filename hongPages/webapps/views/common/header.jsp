@@ -12,12 +12,14 @@
 
 
 <ul class="nav">
-    <li> <a href="/hongPages/index.jsp">Home</a></li> 
-    &nbsp; &nbsp; &nbsp; &nbsp; 
-    &nbsp; &nbsp; &nbsp; &nbsp; 
-    &nbsp; &nbsp;
+    <li> 
+    <a href="/hongPages/index.jsp">Home</a>
+    </li>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    
 
-    <li> <a href="/hongPages/views/notice/notice.jsp">개발자 노트</a>
+	<li> <a href="/hongPages/views/notice/noticeList.jsp">개발자 노트</a>
         <ul>
             <li><a href="#l">업데이트 현황</a></li>
             <li><a href="#">업데이트 추가검토예정</a></li>
