@@ -76,16 +76,24 @@
 			</tr>
 			<% for(Notice n : list){ %>
 			<tr>
-				<td><%= n.getMno() %></td>		<!-- 글    번호 -->
-				<td><%= n.getMtitle() %></td>	<!-- 글    제목 -->
-				<td><%= n.getMwriter() %></td>	<!-- 글   작성자 -->
-				<td><%= n.getMcount() %></td>	<!-- 글   조회수 -->
-				<td><%= n.getMdate() %></td>	<!-- 작  성  일 -->
+				<td><%= n.getMno() %></td>
+				<td><%= n.getMtitle() %></td>
+				<td><%= n.getMwriter() %></td>
+				<td><%= n.getMcount() %></td>
+				<td><%= n.getMdate() %></td>
 			</tr>
 			<% } %>
 		</table>
+		<div class="searchArea" align="center">
+			<select id="searchCondition" name="searchCondition">
+				<option value="">---</option>
+				<option value="writer">작성자</option>
+				<option value="title">제목</option>
+				<option value="content">내용</option>
+			</select>
+			
 		</div>
-		</div>
+	</div>
 	
 			
 		</section>

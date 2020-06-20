@@ -5,21 +5,21 @@ import java.util.ArrayList;
 
 import hide.maiBoard.model.dao.NoticeDAO;
 import hide.maiBoard.model.vo.Notice;
+
 import static hide.common.JDBCTemplate.*;
 
 public class NoticeService {
-		private NoticeDAO mDAO = new NoticeDAO();
-		private Connection con;
+	private NoticeDAO nDAO = new NoticeDAO();
+	private Connection con;
+	
+	public ArrayList<Notice> selectList() throws Exception {
+		con = getConnection();
 		
-		public ArrayList<Notice> selectList() throws Exception{
-			con = getConnection();
-			
-			ArrayList<Notice> list = mDAO.selectList(con);
-			
-			close(con);
-			return list;
-
-		}		
-			
-
+		ArrayList<Notice> list = nDAO.selectList(con);
+		
+		close(con);
+		
+		return list;
+	}
+	
 }

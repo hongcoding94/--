@@ -46,6 +46,6 @@
     		  maxWaitMillis="10000"
     		  driverClassName="oracle.jdbc.OracleDriver"
     		  url="jdbc:oracle:thin:@localhost:49161:xe"
-    		  username="BASEBALL"
-    		  password="BSB" />    
+    		  username="MYPAGE"
+    		  password="MYPAGE" />    
 </Context>

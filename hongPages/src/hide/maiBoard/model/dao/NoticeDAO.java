@@ -18,50 +18,54 @@ public class NoticeDAO {
 	public NoticeDAO() {
 		prop = new Properties();
 		
-		String filePath = NoticeDAO.class.getResource("/config/notice/properties").getPath();
-	
+		String filePath = NoticeDAO.class
+							.getResource("/config/notice.properties")
+							.getPath();
+		
 		try {
 			prop.load(new FileReader(filePath));
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	public ArrayList<Notice> selectList(Connection con) throws Exception {
 		ArrayList<Notice> list = null;
-		PreparedStatement pstmt= null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectList");
 		
 		try {
-			pstmt=con.prepareStatement(sql);
+			pstmt = con.prepareStatement(sql);
+			
 			rset = pstmt.executeQuery();
-			list= new ArrayList<Notice>();
+			
+			list = new ArrayList<Notice>();
 			
 			while(rset.next()) {
-				Notice m = new Notice();
+				Notice n = new Notice();
 				
-				m.setMno(rset.getInt(1));			// 게시판 글번호
-				m.setMtitle(rset.getString(2));		// 게시판 제목
-				m.setMcontent(rset.getString(3));	// 게시판 내용
-				m.setMwriter(rset.getString(4));	// 게시판 작성자
-				m.setMcount(rset.getInt(5));		// 게시판 조회수
-				m.setMdate(rset.getDate(6));		// 게시판 작성일
+				n.setMno(rset.getInt(1));
+				n.setMtitle(rset.getString(2));
+				n.setMcontent(rset.getString(3));
+				n.setMwriter(rset.getString(4));
+				n.setMcount(rset.getInt(5));
+				n.setMdate(rset.getDate(6));
 				
-				list.add(m);
+				list.add(n);
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new Exception("[DAO 에러] :" + e.getMessage());
+			throw new Exception("[DAO에러] : " + e.getMessage());
 		
-		} finally{
+		}finally {
 			close(rset);
 			close(pstmt);
 		}
 		
 		return list;
 	}
-	
-	
 }

@@ -39,9 +39,6 @@ public class Notice implements Serializable  {
 					+ ", Mcount=" + Mcount + ", Mdate=" + Mdate + "]";
 		}
 
-		public static long getSerialversionuid() {
-			return serialVersionUID;
-		}
 
 		public int getMno() {
 			return Mno;
