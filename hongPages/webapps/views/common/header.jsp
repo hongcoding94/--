@@ -19,11 +19,8 @@
     &nbsp; &nbsp; &nbsp; &nbsp;
     
 
-	<li> <a href="/hongPages/selectList.do">개발자 노트</a>
-        <ul>
-            <li><a href="#l">업데이트 현황</a></li>
-            <li><a href="#">업데이트 추가검토예정</a></li>
-        </ul>
+	<li> 
+		<a href="/hongPages/selectList.do">개발자 노트</a> 
     </li>
 
     <li><a href="#"> 자유 게시글 </a>

@@ -32,48 +32,48 @@
 </head>
 <body>
 
-	<%@include file="/views/common/header.jsp" %>
+	<%@include file="/views/common/header.jsp"%>
 
-<div class="row">
-<form action="<%= request.getContextPath() %>/mInsert.do" method="post">
-				<table align="center">
-					<tr>
-						<td>제목 </td>
-						<td colspan="3"><input type="text" size="50" name="title"></td>
-					</tr>
-					<tr><td><br></td></tr>
-					<tr>
-						<td>작성자 </td>
-						<td>
-							<input type="text" name="writer" value="작성"readonly="readonly" >
-						</td>
-					</tr>
-					<tr>
-						<td>내용 </td>
-					</tr>
-					<tr>
-						<td colspan="4">
-							<textarea name="content" cols="60" rows="15" style="resize:none;"></textarea>
-						</td>
-					</tr>
-				</table>
-				<br>
-				<div align="center">
-					<button type="submit">등록하기</button>&nbsp;&nbsp;
-					<button type="reset" onclick="location.href='/baseball/views/notice/noticeList.jsp'">취소하기</button>
-					
-				</div>
-				
-			</form>
-		
-	<aside class="col-3"></aside>
-	<section class="col-6">
-	
-	
-	</section>
-	<aside class="cpl-3"></aside>
-	
-<%@include file="/views/common/footer.jsp" %>
-</div>
+	<div class="row">
+		<form action="<%= request.getContextPath() %>/mInsert.do"
+			method="post">
+			<table align="center">
+				<tr>
+					<td>제목</td>
+					<td colspan="3"><input type="text" size="50" name="title"></td>
+				</tr>
+				<tr>
+					<td><br></td>
+				</tr>
+				<tr>
+					<td>작성자</td>
+					<td><input type="text" name="writer" value="작성"
+						readonly="readonly"></td>
+				</tr>
+				<tr>
+					<td>내용</td>
+				</tr>
+				<tr>
+					<td colspan="4"><textarea name="content" cols="60" rows="15"
+							style="resize: none;"></textarea></td>
+				</tr>
+			</table>
+			<br>
+			<div align="center">
+				<button type="submit">등록하기</button>
+				&nbsp;&nbsp;
+				<button type="reset"
+					onclick="location.href='/baseball/views/notice/noticeList.jsp'">취소하기</button>
+
+			</div>
+
+		</form>
+
+		<aside class="col-3"></aside>
+		<section class="col-6"></section>
+		<aside class="cpl-3"></aside>
+
+		<%@include file="/views/common/footer.jsp"%>
+	</div>
 </body>
 </html>

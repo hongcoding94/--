@@ -68,4 +68,30 @@ public class NoticeDAO {
 		
 		return list;
 	}
+
+	public int insertNotice(Connection con, Notice m) throws Exception {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertNotice");
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			
+			pstmt.setString(1, m.getMtitle());
+			pstmt.setString(2, m.getMcontent());
+			pstmt.setString(3, m.getMwriter());
+			pstmt.setDate(4, m.getMdate());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new Exception("[DAO에러] : " + e.getMessage());
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }

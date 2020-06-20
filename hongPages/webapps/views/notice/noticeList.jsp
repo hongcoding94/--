@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*, hide.maiBoard.model.vo.*"%>
 
-<% ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); %>
+<%
+	ArrayList<Notice> list = (ArrayList<Notice>) request.getAttribute("list");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -41,12 +43,16 @@
 
 
 <style>
-	.column{
-		text-align:center;
-		font-size:20px;
-		font-family:'Times New Roman', Times, serif;
-		border-bottom:1px solid black;
-	}
+.column {
+	text-align: center;
+	font-size: 20px;
+	font-family: 'Times New Roman', Times, serif;
+	border-bottom: 1px solid black;
+}
+
+#header_board {
+	border-bottom: 1px solid black;
+}
 </style>
 
 </head>
@@ -60,47 +66,57 @@
 		<aside class="col-2"></aside>
 		<section class="col-8">
 			<br /> <br />
-			<h2 style="text-align: center;">개발자 노트</h2>
-			<br />
-		<div class="outer">
-		<br>
-		<h2 align="center">공지사항</h2>
-		<div class="tableArea">
-			<table align="center" id="listArea">
-			<tr>
-				<th>글번호</th>
-				<th width="300px">글제목</th>
-				<th width="100px">작성자</th>
-				<th>조회수</th>
-				<th width="100px">작성일</th>
-			</tr>
-			<% for(Notice n : list){ %>
-			<tr>
-				<td><%= n.getMno() %></td>
-				<td><%= n.getMtitle() %></td>
-				<td><%= n.getMwriter() %></td>
-				<td><%= n.getMcount() %></td>
-				<td><%= n.getMdate() %></td>
-			</tr>
-			<% } %>
-		</table>
-		<div class="searchArea" align="center">
-			<select id="searchCondition" name="searchCondition">
-				<option value="">---</option>
-				<option value="writer">작성자</option>
-				<option value="title">제목</option>
-				<option value="content">내용</option>
-			</select>
-			
-		</div>
-	</div>
-	
-			
+			<div class="outer">
+				<br>
+				<h2 align="center">개발자 노트</h2>
+				<div class="tableArea">
+					<br /> <br />
+					<table style="text-align: center;" id="listArea">
+						<tr id="header_board">
+							<th width="80px">글번호</th>
+							<th width="400px">글제목</th>
+							<th width="200px">작성자</th>
+							<th width="80px">조회수</th>
+							<th width="200px">작성일</th>
+						</tr>
+						<%
+							for (Notice n : list) {
+						%>
+						<tr style="font-size: 18px;">
+							<td><b><%=n.getMno()%></b></td>
+							<td><%=n.getMtitle()%></td>
+							<td><%=n.getMwriter()%></td>
+							<td><%=n.getMcount()%></td>
+							<td><%=n.getMdate()%></td>
+						</tr>
+						<%
+							}
+						%>
+					</table>
+					<br /> <br />
+					<div class="searchArea" align="center">
+						<select id="searchCondition" name="searchCondition">
+							<option value="---">---</option>
+							<option value="writer">작성자</option>
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+						</select> <input type="text" name="" id="" /> <input type="submit"
+							value="검색하기" />
+					</div>
+				</div>
+			</div>
+			<br /> <br />
+
 		</section>
 		<aside class="col-2"></aside>
 	</div>
 
 	<br />
+
+	<script>
+		$("select option[value='---']").prop('disabled', true);
+	</script>
+
 	<%@include file="/views/common/footer.jsp"%>
 
 </body>
