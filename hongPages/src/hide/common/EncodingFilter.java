@@ -1,4 +1,4 @@
-package com.kh.jsp.common;
+package hide.common;
 
 import java.io.IOException;
 import javax.servlet.Filter;

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.*, hide.maiBoard.model.vo.*"%>
+
+<% ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); %>
 
 <!DOCTYPE html>
 <html>
@@ -50,7 +52,6 @@
 </head>
 <body>
 
-
 	<!-- common 네비 부분 -->
 	<!-- 나중에 jsp 스크립트로 잡을 예정 -->
 	<%@include file="/views/common/header.jsp"%>
@@ -75,29 +76,17 @@
 			</tr>
 			<% for(Notice n : list){ %>
 			<tr>
-				<td><%= n.getNno() %></td>
-				<td><%= n.getNtitle() %></td>
-				<td><%= n.getNwriter() %></td>
-				<td><%= n.getNcount() %></td>
-				<td><%= n.getNdate() %></td>
+				<td><%= n.getMno() %></td>		<!-- 글    번호 -->
+				<td><%= n.getMtitle() %></td>	<!-- 글    제목 -->
+				<td><%= n.getMwriter() %></td>	<!-- 글   작성자 -->
+				<td><%= n.getMcount() %></td>	<!-- 글   조회수 -->
+				<td><%= n.getMdate() %></td>	<!-- 작  성  일 -->
 			</tr>
 			<% } %>
 		</table>
 		</div>
-		<div class="searchArea" align="center">
-			<select id="searchCondition" name="searchCondition">
-				<option value="">---</option>
-				<option value="writer">작성자</option>
-				<option value="title">제목</option>
-				<option value="content">내용</option>
-			</select>
-			<input type="search" id="keyword" placeholder="키워드를 입력하세요!"> 
-			<button type="button" onclick="search();">검색하기</button>
-			<% if(m != null && m.getUserId().equals("admin")){ %>
-				<button onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
-			<% } %>
-			</div>
-			</div>
+		</div>
+	
 			
 		</section>
 		<aside class="col-2"></aside>

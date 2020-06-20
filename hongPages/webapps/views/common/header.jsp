@@ -25,17 +25,6 @@
             <li><a href="#">업데이트 추가검토예정</a></li>
         </ul>
     </li>
-    
-    <li><a href="#">프로그래밍 공부자료</a>
-        <ul>
-            <li ><a href="#" target="_black">HTML5</a></li>
-            <li><a href="#" target="_black">CSS3</a></li>
-            <li><a href="#" target="_black">JavaScript</a></li>
-            <li><a href="#" target="_black">JQuery</a></li>
-            <li><a href="#" target="_black">BootStrap</a></li>
-        </ul>
-    </li>
-
 
     <li><a href="#"> 자유 게시글 </a>
         <ul>

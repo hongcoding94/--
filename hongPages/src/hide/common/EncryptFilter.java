@@ -1,4 +1,4 @@
-package com.kh.jsp.common;
+package hide.common;
 
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -10,7 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import com.kh.jsp.common.EncryptWrapper;
+import hide.common.EncryptWrapper;
 
 /**
  * Servlet Filter implementation class EncryptFilter
