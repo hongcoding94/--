@@ -94,4 +94,83 @@ public class NoticeDAO {
 		
 		return result;
 	}
+
+	public int updateNotice(Connection con, Notice m) throws Exception {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateNotice");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, m.getMtitle());
+			pstmt.setString(2, m.getMcontent());
+			pstmt.setInt(3, m.getMno());
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new Exception("[DAO에러] : " + e.getMessage());
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
+	public int deleteNotice(Connection con, int mno) throws Exception {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteNotice");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mno);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new Exception("[DAO에러] : " + e.getMessage());
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public Notice selectOne(Connection con, int mno) {
+		Notice m = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectOne");
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setInt(1, nno);
+			
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				m = new Notice();
+				
+				m.setMno(rset.getInt("mno"));
+				m.setMtitle(rset.getString("Mtitle"));
+				m.setMcontent(rset.getString("Mcontent"));
+				m.setMwriter(rset.getString("mwriter"));
+				m.setMcount(rset.getInt("mcount"));
+				m.setMdate(rset.getDate("mdate"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new Exception("[DAO에러] : " + e.getMessage());
+			
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return m;
+	}
 }

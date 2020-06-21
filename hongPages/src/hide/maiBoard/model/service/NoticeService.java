@@ -34,5 +34,43 @@ public class NoticeService {
 		
 		return result;
 	}
+
+	public int updateNotice(Notice m) throws Exception {
+		con = getConnection();
+		
+		int result = nDAO.updateNotice(con,m);
+		
+		if(result >0) commit(con);
+		else rollback(con);
+		
+		close(con);
+		
+		return result;
+		
+		
+	}
+
+	public int deleteNotice(int mno) throws Exception {
+		con= getConnection();
+		
+		int result = nDAO.deleteNotice(con,mno);
+		
+		if(result > 0) commit(con);
+		else rollback(con);
+		
+		close(con);
+		
+		return result;
+		
+	}
+
+	public Notice viewBoard(int mno) {
+		con = getConnection();
+		Notice m = nDAO.selectOne(con,mno);
+		
+		close(con);
+		
+		return m;
+	}
 	
 }
