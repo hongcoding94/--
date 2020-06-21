@@ -20,6 +20,16 @@ public class MemberService {
 		close(con);
 		return result;
 	}
+
+	public Member selectMember(Member m) throws Exception {
+		con = getConnection();
+		Member result = mDAO.selectMember(con, m);
+		
+		close(con);
+		if(result == null) throw new Exception("[Service에러] : 로그인 실패!");
+		
+		return result;
+	}
 	
 
 }
