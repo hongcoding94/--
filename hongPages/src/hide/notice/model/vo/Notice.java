@@ -1,4 +1,4 @@
-package hide.maiBoard.model.vo;
+package hide.notice.model.vo;
 
 import java.io.Serializable;
 import java.sql.Date;

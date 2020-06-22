@@ -1,4 +1,4 @@
-package hide.maiBoard.controller;
+package hide.notice.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,37 +7,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import hide.maiBoard.model.service.NoticeService;
-import hide.maiBoard.model.vo.Notice;
-import static hide.common.JDBCTemplate.*;
+import hide.notice.model.service.NoticeService;
+import hide.notice.model.vo.Notice;
 
 @WebServlet("/nUpdate.do")
-public class updateNotice extends HttpServlet {
-	private static final long serialVersionUID = 1414L;
-       
-    public updateNotice() { super(); }
+public class noticeUpdate extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public noticeUpdate() { super(); }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String title = request.getParameter("Mtitle");
-		String content = request.getParameter("Mcontent");
-		int mno = Integer.parseInt(request.getParameter("Mno"));
+		String tilte = request.getParameter("mtitle");
+		String content = request.getParameter("content");
+		int mno = Integer.parseInt(request.getParameter("mno"));
 		
-		Notice m = new Notice();
+		Notice n = new Notice();
 		
-		m.setMno(mno);
-		m.setMcontent(content);
-		m.setMtitle(title);
+		n.setMno(mno);
+		n.setMcontent(content);
+		n.setMtitle(tilte);
 		
 		try {
-			new NoticeService().updateNotice(m);
+			new NoticeService().updateNotice(n);
 			response.sendRedirect("selectList.do");
 			
 		} catch (Exception e) {
 			request.setAttribute("exception", e);
-			request.setAttribute("msg", "공지사항 수정 실패했습니다.");
+			request.setAttribute("error-msg", "공지사항 수정 실패!");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

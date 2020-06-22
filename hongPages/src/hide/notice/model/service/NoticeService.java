@@ -1,10 +1,10 @@
-package hide.maiBoard.model.service;
+package hide.notice.model.service;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import hide.maiBoard.model.dao.NoticeDAO;
-import hide.maiBoard.model.vo.Notice;
+import hide.notice.model.dao.NoticeDAO;
+import hide.notice.model.vo.Notice;
 
 import static hide.common.JDBCTemplate.*;
 
@@ -20,12 +20,13 @@ public class NoticeService {
 		close(con);
 		
 		return list;
+
 	}
 
-	public int inserNotice(Notice m) throws Exception {
+	public int insertNotice(Notice n) throws Exception {
 		con = getConnection();
 		
-		int result = nDAO.insertNotice(con, m);
+		int result = nDAO.insertNotice(con, n);
 		
 		if(result > 0) commit(con);
 		else rollback(con);
@@ -33,12 +34,13 @@ public class NoticeService {
 		close(con);
 		
 		return result;
+		
 	}
 
-	public int updateNotice(Notice m) throws Exception {
+	public int deleteNotice(int mno) throws Exception {
 		con = getConnection();
 		
-		int result = nDAO.updateNotice(con,m);
+		int result = nDAO.deleteNotice(con, mno);
 		
 		if(result >0) commit(con);
 		else rollback(con);
@@ -50,12 +52,12 @@ public class NoticeService {
 		
 	}
 
-	public int deleteNotice(int mno) throws Exception {
-		con= getConnection();
+	public int updateNotice(Notice n) throws Exception {
+		con = getConnection();
 		
-		int result = nDAO.deleteNotice(con,mno);
+		int result = nDAO.updateNotice(con, n);
 		
-		if(result > 0) commit(con);
+		if(result>0) commit(con);
 		else rollback(con);
 		
 		close(con);
@@ -64,13 +66,21 @@ public class NoticeService {
 		
 	}
 
-	public Notice viewBoard(int mno) {
+	public Notice selectOne(int mno) throws Exception {
 		con = getConnection();
-		Notice m = nDAO.selectOne(con,mno);
 		
+		Notice n = nDAO.selectOne(con, mno);
+		
+		if(n != null) {
+			int result = nDAO.updateReadCount(con,mno);
+			
+			if(result>0) commit(con);
+			else rollback(con);
+		}
 		close(con);
 		
-		return m;
+		return n;
 	}
+	
 	
 }
