@@ -9,7 +9,7 @@
 </head>
 <body>
 	<%@ include file="../common/header.jsp" %>
-	<% if(m != null && m.gerUserId().equals("admin)")){ %>
+	<% if(m != null && m.getUserId().equals("admin)")){ %>
 	<div class="outer">
 		<br>
 		<h2 align="center">공지 사항 수정</h2>
@@ -20,24 +20,24 @@
 						<td>제목 </td>
 						<td colspan="3">
 							<input type="text" size="50" name="title" 
-							       value="<%= n.getNtitle().replace("\"", "&#34;") %>">
-							<input type="hidden" name="nno" value="<%= n.getNno() %>">
+							       value="<%= n.getMtitle().replace("\"", "&#34;") %>">
+							<input type="hidden" name="nno" value="<%= n.getMno() %>">
 						</td>
 					</tr>
 					<tr>
 						<td>작성자 </td>
 						<td>
-							<input type="text" value="<%= n.getNwriter() %>" name="writer" readonly>
+							<input type="text" value="<%= n.getMwriter() %>" name="writer" readonly>
 						</td>
 						<td>작성일</td>
-						<td><input type="date" name="date" value="<%= n.getNdate() %>"></td>
+						<td><input type="date" name="date" value="<%= n.getMdate() %>"></td>
 					</tr>
 					<tr>
 						<td>내용 </td>
 					</tr>
 					<tr>
 						<td colspan="4">
-							<textarea name="content" cols="60" rows="15" style="resize:none;"><%= n.getNcontent() %></textarea>
+							<textarea name="content" cols="60" rows="15" style="resize:none;"><%= n.getMcontent() %></textarea>
 						</td>
 					</tr>
 				</table>

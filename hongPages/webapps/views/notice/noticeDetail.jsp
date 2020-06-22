@@ -47,22 +47,22 @@
 				<table>
 					<tr>
 						<td>제목 : </td>
-						<td colspan="3"><%= n.getNtitle() %></td>
+						<td colspan="3"><%= n.getMtitle() %></td>
 					</tr>
 					<tr>
 						<td>작성자 :</td>
 						<td>
-							<%= n.getNwriter() %>
+							<%= n.getMwriter() %>
 						</td>
 						<td>작성일 : </td>
-						<td><%= n.getNdate() %></td>
+						<td><%= n.getMdate() %></td>
 					</tr>
 					<tr>
 						<td>내용 </td>
 					</tr>
 					<tr>
 						<td colspan="4"><br>
-							<span><%= n.getNcontent().charAt(0) %></span><%= n.getNcontent().substring(1) %>
+							<span><%= n.getMcontent().charAt(0) %></span><%= n.getMcontent().substring(1) %>
 						</td>
 					</tr>
 				</table>
@@ -72,7 +72,7 @@
 					<button onclick="location.href='selectList.no'">메뉴로 돌아가기</button>
 
 					<% if( m != null && m.getUserId().equals("admin")) { %>
-						<button onclick="location.href='nUpView.no?nno=<%=n.getNno()%>'">수정하기</button>
+						<button onclick="location.href='nUpView.no?nno=<%=n.getMno()%>'">수정하기</button>
 					<% } %>
 				</div>
 		</div>
