@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="hide.maiBoard.model.vo.*" %>
+    pageEncoding="UTF-8" import="hide.notice.model.vo.*" %>
     <% Notice n = (Notice) request.getAttribute("notice"); %>
 <!DOCTYPE html>
 <html>

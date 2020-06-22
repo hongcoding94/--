@@ -24,8 +24,8 @@ public class loginMember extends HttpServlet {
 		String userPwd = request.getParameter("userPwd");
 		String originPwd = (String)request.getAttribute("userPassWord");
 		
-		System.out.println("원본 비밀번호 : " + originPwd);
-		System.out.println("암호화 비밀번호 : " + userPwd);
+		System.out.println("원본 비밀번호 : " + userPwd);
+		System.out.println("암호화 비밀번호 : " + originPwd);
 		
 		Member m = new Member(userId, userPwd);
 				

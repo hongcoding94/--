@@ -18,7 +18,7 @@ public class noticeUpdate extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String tilte = request.getParameter("mtitle");
-		String content = request.getParameter("content");
+		String content = request.getParameter("mcontent");
 		int mno = Integer.parseInt(request.getParameter("mno"));
 		
 		Notice n = new Notice();
