@@ -12,13 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import hide.maiBoard.model.service.NoticeService;
 import hide.maiBoard.model.vo.Notice;
-import static hide.common.JDBCTemplate.*;
 
-@WebServlet("/mInsert.do")
-public class InsertBoardServlet extends HttpServlet {
+/**
+ * Servlet implementation class InsertBoard
+ */
+@WebServlet("/minsertboard.do")
+public class InsertBoard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
-    public InsertBoardServlet() { super(); }
+    public InsertBoard() { super(); }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mtilte = request.getParameter("tilte");
@@ -49,7 +51,16 @@ public class InsertBoardServlet extends HttpServlet {
 			
 			NoticeService ns = new NoticeService();	
 	
-			ns.inserNotice(m);
+			try {
+				ns.inserNotice(m);
+				response.sendRedirect("selectList.do");
+				
+			} catch (Exception e) {
+				request.setAttribute("exception",  e);
+				request.setAttribute("error-msg", "공지사항실패");
+				
+				request.getRequestDispatcher("views/common/errorPage/jsp").forward(request, response);
+			}
 		}
 		
 	
