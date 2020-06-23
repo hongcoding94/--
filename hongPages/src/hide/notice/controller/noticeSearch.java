@@ -10,42 +10,43 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import hide.common.Search;
-
 import hide.common.PageInfo;
 
 import hide.notice.model.service.NoticeService;
 import hide.notice.model.vo.Notice;
 
-@WebServlet("/noticeSearch.do")
+@WebServlet("/searchNotice.do")
 public class noticeSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+   
+    public noticeSearch() { super(); }
 
-	public noticeSearch() {
-		super();
-	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 		ArrayList<Notice> list = new ArrayList<Notice>();
+		
 		NoticeService ns = new NoticeService();
+		
 		String condition = request.getParameter("con");
 		String keyword = request.getParameter("keyword");
-
+		
 		int startPage;
 		int endPage;
 		int maxPage;
 		int currentPage;
 		int limit;
-
+		
 		currentPage = 1;
 		limit = 10;
-
-		if (request.getParameter("currentPage") != null) {
-			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		
+		if(request.getParameter("currentPage") != null) {
+			currentPage
+			= Integer.parseInt(request.getParameter("currentPage"));
 		}
+		
 		int listCount = ns.getSelectListCount(condition, currentPage, limit, keyword);
-
-System.out.println("listCount : "+ listCount);
+		
+		System.out.println("listCount : "+ listCount);
 		
 		maxPage = (int)((double)listCount/limit + 0.9);
 		
@@ -58,12 +59,7 @@ System.out.println("listCount : "+ listCount);
 		}
 				
 		
-		try {
-			list = ns.searchNotice(condition, keyword, currentPage, limit);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		list = ns.searchNotice(condition, keyword, currentPage, limit);
 		
 		String page = "";
 		
@@ -88,8 +84,8 @@ System.out.println("listCount : "+ listCount);
 		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 

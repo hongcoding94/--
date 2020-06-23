@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*, hide.notice.model.vo.*, hide.common.PageInfo"%>
+	pageEncoding="UTF-8" import="java.util.*, hide.notice.model.vo.*, hide.common.PageInfo, hide.common.Search "%>
 
 <% 
 	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); 
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
-	// Search s = (Search)request.getAttribute("s"); 
+	Search s = (Search)request.getAttribute("s"); 
 	int listCount = pi.getListCount();
 	int currentPage = pi.getCurrentPage();
 	int maxPage = pi.getMaxPage();
@@ -68,7 +68,34 @@
 	<!-- common 네비 부분 -->
 	<!-- 나중에 jsp 스크립트로 잡을 예정 -->
 	<%@include file="/views/common/header.jsp"%>
-
+	
+<% String pageURL =   request.getContextPath() + "/searchNotice.do?con=" + s.getCondition() + "&keyword=" + s.getKeyword() + "&currentPage="; %>
+	
+<div class="pagingArea" align="center">
+			<button onclick="location.href='<%= pageURL %>1'"><<</button>
+			<%  if(currentPage <= 1){  %>
+			<button disabled><</button>
+			<%  }else{ %>
+			<button onclick="location.href='<%= pageURL  +(currentPage - 1) %>'"><</button>
+			<%  } %>
+			
+			<% for(int p = startPage; p <= endPage; p++){
+					if(p == currentPage){	
+			%>
+				<button disabled><%= p %></button>
+			<%      }else{ %>
+				<button onclick="location.href='<%= pageURL  +  p %>'"><%= p %></button>
+			<%      } %>
+			<% } %>
+				
+			<%  if(currentPage >= maxPage){  %>
+			<button disabled>></button>
+			<%  }else{ %>
+			<button onclick="location.href='<%= pageURL  +(currentPage + 1) %>'">></button>
+			<%  } %>
+			<button onclick="location.href='<%= pageURL  + maxPage %>'">>></button>	
+		</div>
+		
 	<div class="row">
 		<aside class="col-2"></aside>
 		<section class="col-8">
