@@ -20,9 +20,7 @@ public class noticeSelectList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	ArrayList<Notice> list = new ArrayList<Notice>();
-	
 	NoticeService ns = new NoticeService();
-	
 	String page = null;
 	
 	try {

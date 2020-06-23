@@ -110,7 +110,7 @@ public class NoticeService {
 		con = getConnection();
 		ArrayList<Notice> list = null;
 		
-		if(condition != null && (condition.length()>0 && ! condition.equals("null"))) {
+		if(condition != null && (condition.length()>0 && !condition.equals("null"))) {
 			list = nDAO.searchList(con,condition,keyword,currentPage, limit);
 		}else {
 			list = nDAO.selectList(con,currentPage, limit);
