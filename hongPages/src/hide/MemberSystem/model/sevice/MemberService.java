@@ -30,6 +30,31 @@ public class MemberService {
 		
 		return result;
 	}
+
+	public int updateMember(Member m) throws Exception {
+		con = getConnection();
+		
+		int result = mDAO.updateMember(con, m);
+		
+		if(result > 0 ) commit(con);
+		
+		close(con);
+		
+		return result;
+		
+	}
+
+	public int deleteMember(String userId) throws Exception {
+		con = getConnection();
+		int result = mDAO.deleteMember(con, userId);
+		
+		if(result > 0) commit(con);
+		
+		close(con);
+		
+		return result;
+		
+	}
 	
 
 }

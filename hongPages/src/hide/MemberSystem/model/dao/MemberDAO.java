@@ -97,4 +97,54 @@ public class MemberDAO {
 		
 		return result;
 	}
+
+	public int updateMember(Connection con, Member m) throws Exception {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateMember");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, m.getUserPssword());
+			pstmt.setInt(2, m.getUserAge() );
+			pstmt.setString(3, m.getUserPhone());
+			pstmt.setString(4, m.getAddress());
+			pstmt.setString(5, m.getUserId());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			throw new Exception("[DAO 에러] : " +e.getMessage());
+			
+		}finally {
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
+
+	public int deleteMember(Connection con, String userId) throws Exception {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteMember");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new Exception("[DAO 에러] : " + e.getMessage());
+			
+		}finally {
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
 }
