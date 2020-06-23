@@ -147,4 +147,31 @@ public class MemberDAO {
 		
 		return result;
 	}
+
+	public int idDupCheck(Connection con, String id) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql =prop.getProperty("idDupCheck");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				result = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
 }

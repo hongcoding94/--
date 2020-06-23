@@ -38,6 +38,7 @@ public class noticeSelectList extends HttpServlet {
 		
 	}finally {
 		request.getRequestDispatcher(page).forward(request, response);
+		
 	}
 }
 

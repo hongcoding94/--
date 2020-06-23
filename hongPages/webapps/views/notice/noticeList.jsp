@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*, hide.notice.model.vo.*"%>
+	pageEncoding="UTF-8" import="java.util.*, hide.notice.model.vo.*, hide.common.PageInfo"%>
 
-<%
-	ArrayList<Notice> list = (ArrayList<Notice>) request.getAttribute("list");
+<% 
+	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); 
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	// Search s = (Search)request.getAttribute("s"); 
+	int listCount = pi.getListCount();
+	int currentPage = pi.getCurrentPage();
+	int maxPage = pi.getMaxPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
 %>
 
 <!DOCTYPE html>

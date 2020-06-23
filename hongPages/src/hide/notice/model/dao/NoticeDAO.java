@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import hide.notice.model.vo.Notice;
+
 import static hide.common.JDBCTemplate.*;
 
 public class NoticeDAO {
@@ -28,7 +29,7 @@ public class NoticeDAO {
 		}
 	}
 
-	public ArrayList<Notice> selectList(Connection con) throws Exception {
+	public ArrayList<Notice> selectList(Connection con, int currentPage, int limit) throws Exception {
 		ArrayList<Notice> list = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -44,7 +45,7 @@ public class NoticeDAO {
 				
 				n.setMno(rset.getInt(1));
 				n.setMtitle(rset.getString(2));
-				n.setMcontent(rset.getNString(3));
+				n.setMcontent(rset.getString(3));
 				n.setMwriter(rset.getString(4));
 				n.setMcount(rset.getInt(5));
 				n.setMdate(rset.getDate(6));
@@ -194,5 +195,131 @@ public class NoticeDAO {
 		
 		return result;
 	}
-	
+
+	public ArrayList<Notice> searchList(Connection con, String condition, 
+			String keyword, int currentPage, int limit) {
+			  
+			  ArrayList<Notice> list = null; 
+			  PreparedStatement pstmt = null;
+			  ResultSet rset = null;
+			  
+			  String sql = null;
+			  
+			  switch(condition) {
+			  case "writer": 
+				  sql = prop.getProperty("searchWriterNotice");
+				  break;
+			  case "title" : 
+				  sql = prop.getProperty("searchTitleNotice");
+				  break;
+			  case "content" : 
+				  sql = prop.getProperty("searchContentNotice");
+				  break;
+			  }
+			  
+			  try {
+				  pstmt = con.prepareStatement(sql);
+				  
+				  int startRow = (currentPage - 1) * limit + 1;
+				  int endRow = startRow + limit - 1;
+				  
+				  pstmt.setString(1, keyword);
+				  pstmt.setInt(2, endRow);
+				  pstmt.setInt(3, startRow);			
+				  
+				  rset = pstmt.executeQuery();
+				  
+				  list = new ArrayList<Notice>();
+				  
+				  while(rset.next()) {
+					  Notice n = new Notice();
+					  
+					  n.setMno(rset.getInt("nno"));
+					  n.setMtitle(rset.getString("ntitle"));
+					  n.setMcontent(rset.getString("ncontent"));
+					  n.setMwriter(rset.getString("nwriter"));
+					  n.setMcount(rset.getInt("ncount"));
+					  n.setMdate(rset.getDate("ndate"));
+					  
+					  list.add(n);
+				  }
+			  } catch (SQLException e) {
+				  
+				  e.printStackTrace();
+			  }finally{
+				  close(rset);
+				  close(pstmt);
+			  }
+			  
+			  return list;
+		  }
+
+	public int searchList(Connection con, String condition, String keyword) {
+
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = null;
+		
+		switch(condition) {
+		case "writer": 
+			sql = prop.getProperty("countWriterNotice");
+			break;
+		case "title" : 
+			sql = prop.getProperty("countTitleNotice");
+			break;
+		case "content" : 
+			sql = prop.getProperty("countContentNotice");
+			break;
+		}
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, keyword);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				result = rset.getInt(1);
+			}
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int selectList(Connection con) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("listCount");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				result = rset.getInt(1);
+			}
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }
+	
+
