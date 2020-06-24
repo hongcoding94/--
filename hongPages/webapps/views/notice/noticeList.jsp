@@ -60,6 +60,7 @@
 #header_board {
 	border-bottom: 1px solid black;
 }
+
 </style>
 
 </head>
@@ -70,31 +71,6 @@
 	<%@include file="/views/common/header.jsp"%>
 	
 <% String pageURL =   request.getContextPath() + "/searchNotice.do?con=" + s.getCondition() + "&keyword=" + s.getKeyword() + "&currentPage="; %>
-	
-<div class="pagingArea" align="center">
-			<button onclick="location.href='<%= pageURL %>1'"><<</button>
-			<%  if(currentPage <= 1){  %>
-			<button disabled><</button>
-			<%  }else{ %>
-			<button onclick="location.href='<%= pageURL  +(currentPage - 1) %>'"><</button>
-			<%  } %>
-			
-			<% for(int p = startPage; p <= endPage; p++){
-					if(p == currentPage){	
-			%>
-				<button disabled><%= p %></button>
-			<%      }else{ %>
-				<button onclick="location.href='<%= pageURL  +  p %>'"><%= p %></button>
-			<%      } %>
-			<% } %>
-				
-			<%  if(currentPage >= maxPage){  %>
-			<button disabled>></button>
-			<%  }else{ %>
-			<button onclick="location.href='<%= pageURL  +(currentPage + 1) %>'">></button>
-			<%  } %>
-			<button onclick="location.href='<%= pageURL  + maxPage %>'">>></button>	
-		</div>
 		
 	<div class="row">
 		<aside class="col-2"></aside>
@@ -145,10 +121,48 @@
 		<aside class="col-2"></aside>
 	</div>
 
+	
+<div class="pagingArea" align="center">
+			<button onclick="location.href='<%= pageURL %>1'"><<</button>
+			<%  if(currentPage <= 1){  %>
+			<button disabled><</button>
+			<%  }else{ %>
+			<button onclick="location.href='<%= pageURL  +(currentPage - 1) %>'"><</button>
+			<%  } %>
+			
+			<% for(int p = startPage; p <= endPage; p++){
+					if(p == currentPage){	
+			%>
+				<button disabled><%= p %></button>
+			<%      }else{ %>
+				<button onclick="location.href='<%= pageURL  +  p %>'"><%= p %></button>
+			<%      } %>
+			<% } %>
+				
+			<%  if(currentPage >= maxPage){  %>
+			<button disabled>></button>
+			<%  }else{ %>
+			<button onclick="location.href='<%= pageURL  +(currentPage + 1) %>'">></button>
+			<%  } %>
+			<button onclick="location.href='<%= pageURL  + maxPage %>'">>></button>	
+		</div>
+
 	<br />
 
 	<script>
 		$("select option[value='---']").prop('disabled', true);
+		
+		$(function(){
+		$("#listArea td").mouseenter(function(){
+			$(this).parent().css({"background" : "lightgray", "cursor" : "pointer"});
+		}).mouseout(function(){
+			$(this.parent().css({"background" : "white"}));
+		}).click(function(){
+			var mno = $(this).parent().children().eq(0).text();
+		location.href="<%=request.getContextPath()%>/selectOne.do?mno=" +mno;
+		});
+	});
+	
 	</script>
 
 	<%@include file="/views/common/footer.jsp"%>

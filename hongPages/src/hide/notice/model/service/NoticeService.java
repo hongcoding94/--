@@ -101,6 +101,10 @@ public class NoticeService {
 		
 		if(condition != null && (condition.length()>0 && !condition.equals("null"))) {
 			result = nDAO.getSelectListCount(con, condition, keyword);
+		}else {
+			
+			result = nDAO.getListCount(con);
+			
 		}
 		
 		return result;

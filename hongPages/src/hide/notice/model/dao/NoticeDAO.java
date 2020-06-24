@@ -249,13 +249,13 @@ public class NoticeDAO {
 		
 		switch(condition) {
 		case "writer" : 
-			sql = prop.getProperty("searchWriterNotice");
+			sql = prop.getProperty("countWriterBoard");
 			break;
 		case "tilte" :
-			sql = prop.getProperty("searchTitleNotice");
+			sql = prop.getProperty("countTitleBoard");
 			break;
 		case "content" :
-			sql = prop.getProperty("searchContentNotice");
+			sql = prop.getProperty("CountContentNotice");
 			break;
 		}
 		
@@ -332,6 +332,32 @@ public class NoticeDAO {
 		  
 		  return list;
 	  }
+
+	public int getListCount(Connection con) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("listCount");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				result = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 
 }

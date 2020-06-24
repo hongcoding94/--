@@ -63,7 +63,7 @@
 		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 
-		<li><a href="/hongPages/selectList.do">개발자 노트</a></li>
+		<li><a href="/hongPages/searchNotice.do">개발자 노트</a></li>
 
 		<li><a href="#"> 자유 게시글 </a>
 			<ul>
