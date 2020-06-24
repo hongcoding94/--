@@ -16,15 +16,11 @@
 					<ul class="navbar-nav ml-auto">
 
 						<%if ( m == null ) { %>
-						<li class="dropdown-toggle" style="margin-left: auto;"><a
-							class="nav-link" href="#" data-toggle="modal"
+						<li style="margin-left: auto;"><a
+							class="link" href="/hongPages/views/common/login/loginindex.jsp"
 							aria-haspopup="true" aria-expanded="false"
 							data-target="#loginFormBtnGo"
-							style="display: inline; color: white;"> 로그인 </a> <a
-							class="nav-link" href="#" data-toggle="modal"
-							aria-haspopup="true" aria-expanded="false"
-							data-target="#newSignBtnGo"
-							style="display: inline; color: white;"> 회원가입 </a></li>
+							style="display: inline; color: white;"> 로그인 </a></li>
 						
 						<% } else { %>
 						
