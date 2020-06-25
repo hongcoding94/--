@@ -69,7 +69,6 @@ public class MemberDAO {
 			
 			pstmt.setString(1, m.getUserId());
 			pstmt.setString(2, m.getUserPassword());
-			
 			// 회원
 			rset = pstmt.executeQuery();
 			
@@ -78,18 +77,20 @@ public class MemberDAO {
 			if(rset.next()) {
 				result = new Member();
 				
+				
 				result.setUserId(rset.getString("UserId"));
-				result.setUserPassword(m.getUserPassword());
-				result.setUserName(m.getUserName());
-				result.setGender(rset.getString("Gender"));
-				result.setUserAge(rset.getInt("UserAge"));
+				result.setUserPassword(rset.getString("UserPassword"));
+				result.setUserName(rset.getString("UserName"));
 				result.setUserPhone(rset.getString("UserPhone"));
 				result.setAddress(rset.getString("Address"));
+				result.setUserAge(rset.getInt("UserAge"));
+				result.setGender(rset.getString("Gender"));
 				
 			}
 			System.out.println("result 조회 후 : " + result);
 			
 		} catch (SQLException e) {
+			// 정상 작동함
 			e.printStackTrace();
 			throw new Exception("[DAO에러] : " +e.getMessage());
 			

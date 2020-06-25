@@ -16,7 +16,6 @@ public class EncryptWrapper extends HttpServletRequestWrapper {
 
 	@Override
 	public String getParameter(String name) {
-		// 사용자가 입력한 값을 받아오는 메소드
 
 		if (name != null && name.equals("userPassWord")) {
 			// 암호화 코드 실행
@@ -27,8 +26,6 @@ public class EncryptWrapper extends HttpServletRequestWrapper {
 		}
 
 	}
-	// 암호화를 위한 SHA512 메소드 작성 [기본적으로 많이 쓰인다.]
-
 	private static String getSHA512(String pwd) {
 
 		try {

@@ -13,7 +13,7 @@ import hide.MemberSystem.model.sevice.MemberService;
 
 @WebServlet("/idDup.do")
 public class idDuplicate extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1231L;
  
     public idDuplicate() { super(); }
 

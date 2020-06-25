@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import hide.common.EncryptWrapper;
 
 
-@WebFilter({"/mInsert.do", "/login.do", "/mUpdate.do, /login.do"})
+@WebFilter({"/mInsert.do", "/login.do", "/mUpdate.do, /idDup.do "})
 public class EncryptFilter implements Filter {
 
  
@@ -23,7 +23,6 @@ public class EncryptFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// 서블릿에 도착하기 전 수행할 코드
-		// 원본 request 받기
 		HttpServletRequest req = (HttpServletRequest)request;
 		
 		// 비밀번호 확인용 값 저장
@@ -37,11 +36,7 @@ public class EncryptFilter implements Filter {
 		// 서블릿 동작 후 수행할 코드
 	}
 
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
 	}
 
 }
