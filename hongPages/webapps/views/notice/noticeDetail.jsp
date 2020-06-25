@@ -63,6 +63,11 @@
 	table tr td{
 		padding-top: 17px;
 	}
+	
+	.rollbtn{
+		background:skyblue;
+		color:yellou;
+	}
 </style>
 <title>공지 사항 내용</title>
 </head>
@@ -98,7 +103,8 @@
 				<br>
 				<div align="center">
 					
-					<button onclick="location.href='searchNotice.do'">메뉴로 돌아가기</button>
+					<br /> <br /> <br /> <br />
+					<button class="rollbtn" onclick="location.href='searchNotice.do'">메뉴로 돌아가기</button>
 
 					<% if( m != null && m.getUserId().equals("admin")) { %>
 						<button onclick="location.href='nUpView.no?nno=<%=n.getMno()%>'">수정하기</button>
