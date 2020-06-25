@@ -3,40 +3,46 @@
 <%
 	String msg = (String)request.getAttribute("error-msg");
 	Exception e = (Exception)request.getAttribute("exception");
-	// 일반적으로 jsp에 사용되는 exception 내장 객체는 jspException 클래스를 활용한다.
-	// 따라서 사용자 정의 예외를 구현할 때에는 Exception 객체를 직접 선언하여 사용하여야 한다.
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Service ERROR</title>
+<title>Service errorPage</title>
+    <link rel="stylesheet" href="/hongPages/resources/css/index/errorPage.css">
+    
+    
 <style>
 .outer{
 		padding: 20px;
 		width:600px;
 		height:500px;
-		background:black;
-		color:white;
+		color:black;
+		text-align:center;
 		margin-left:auto;
 		margin-right:auto;
 		margin-top:50px;
-	}
-span {
-	font-size:21pt;
-	background: white;
-	color: navy;
+		background:skyblue;
+		transition-timing-function: ease-out;
+		border-radius: 7%;
 }
+
 </style>
+
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
 	<div class="outer">
 		<h1>서비스 에러 발생!!!</h1>
-		<h3 style="color:hotpink;">ERROR : <%= e.getMessage() %></h3>
-		<h4><span>서</span>비스 수행 중 에러가 발생했습니다. <br>
+		<br /><h3 style="color:red;">What is the error? 
+		<br /><%= e.getMessage() %></h3><br />
+		<h4>서비스 수행 중 에러가 발생했습니다. <br />
 		담당자에게 연락하시기 바랍니다.</h4>
+		<br /> <br /> <br />
+	<a href="/hongPages/index.jsp"><input type="button" value="메인으로 돌아가기" ></a>
 	</div>
+	
+	
 <%@ include file="../common/footer.jsp" %>
 </body>
 </html>

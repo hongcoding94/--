@@ -11,7 +11,7 @@
 <div class="row">
 	<nav class="top-bar navbar-expand-sm bg-secondary" id="test1">
 		<div class="container">
-			<div class="row">
+			<div class="row" id="vc">
 				<div class="col-12" id="test">
 					<ul class="navbar-nav ml-auto">
 
@@ -25,13 +25,12 @@
 						<% } else { %>
 						
 						<li class="nav-item dropdown" style="margin-left: auto;">
-							<p>
-								<a class="nav-link" style="display: inline; color: white;"><b><%= m.getUserId() %>님
-										환영합니다.</b></a>
-							</p> <a class="nav-link" href="#"
-							style="display: inline; color: white;" onclick="changeInfo();">마이페이지
+							
+						<a class="nav-link" style="display:inline; color: white;"><b><%= m.getUserName() %></b>님 환영합니다.</a>
+							 <a class="nav-link" href="#"
+							style="display:inline; color: white;" onclick="changeInfo();">마이페이지
 						</a> <a class="nav-link" href="#"
-							style="display: inline; color: white;" onclick="logoutBtn();">로그아웃
+							style="display:inline; color: white;" onclick="logoutBtn();">로그아웃
 						</a>
 
 						</li>
@@ -53,17 +52,15 @@
 		<b>진홍쓰의 홈페이지</b>
 	</p>
 
-
 	<ul class="nav">
-		<li><a href="/hongPages/index.jsp">Home</a></li> &nbsp; &nbsp; &nbsp;
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
+		<li><a href="/hongPages/index.jsp">Home</a></li> 
+		&nbsp; &nbsp; &nbsp; &nbsp;
+		&nbsp; &nbsp; &nbsp; &nbsp;
 
 		<li><a href="/hongPages/searchNotice.do">개발자 노트</a></li>
 
 		<li><a href="#"> 자유 게시글 </a>
 			<ul>
-				<li><a href="#">개발자 업적</a></li>
 				<li><a href="#">불편을<br>드려죄송합니다<br>빠른시일내에<br>찾아뵙겠습니다.
 				</a></li>
 			</ul></li>
@@ -94,5 +91,13 @@
 			</ul></li>
 
 	</ul>
+	
+	<script>
+	
+	function logoutBtn(){
+		location.href="/hongPages/logout.do";
+	}	
+	
+	</script>
 
 </header>

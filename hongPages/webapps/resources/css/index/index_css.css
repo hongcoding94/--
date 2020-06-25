@@ -3,13 +3,6 @@
 */
 @charset "UTF-8";
 
-        #pan1{
-            position:absolute;  
-            margin-top: -10%;         
-            margin-left: 43%;
-            font-size: 40px;
-            color: white;
-        }
         #pan2{
             font-size: 20px;
             text-align: center;

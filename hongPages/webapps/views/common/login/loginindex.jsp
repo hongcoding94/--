@@ -40,9 +40,11 @@
               </div>
               <div class="form-group mb-4">
                 <label for="password">비밀번호</label>
-                <input type="password" name="userPwd" id="password" class="form-control" placeholder="enter your passsword">
+                <input type="password" name="userPassWord" id="password" class="form-control" placeholder="enter your passsword">
               </div>
+              
               <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Login">
+            
             </form>
             
             <!-- 비밀번호 찾기 위한 연결 -->

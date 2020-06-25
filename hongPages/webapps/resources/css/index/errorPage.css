@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+
 #pan1 {
 	position: absolute;
 	margin-top: -10%;
@@ -119,6 +120,7 @@
 	-o-transition: all 0.6s;
 }
 
+
 .nav li ul {
 	transition: all 1s;
 	-webkit-transtion: all 1s;
@@ -133,6 +135,9 @@
 	-o-transition: all 0.6s;
 }
 
-#test1 {
-	width: 100%;
+.navbar-expand-sm{
+	display:none;
+}
+ul.nav{
+	margin:0;
 }

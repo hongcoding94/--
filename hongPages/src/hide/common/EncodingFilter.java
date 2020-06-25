@@ -36,7 +36,7 @@ public class EncodingFilter implements Filter {
 		// 인코딩
 		request.setCharacterEncoding("UTF-8");
 		// response는 JSP 지시자 태그로 선언되기 때문에 사용 안해도 됨
-		// <%@ page . . .  %>
+		
 		
 		chain.doFilter(request, response);
 	}

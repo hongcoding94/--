@@ -36,7 +36,7 @@ public class MemberDAO {
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, m.getUserId());
-			pstmt.setString(2, m.getUserPssword());
+			pstmt.setString(2, m.getUserPassword());
 			pstmt.setString(3, m.getUserName());
 			pstmt.setString(4, m.getGender());
 			pstmt.setInt(5, m.getUserAge());
@@ -62,28 +62,31 @@ public class MemberDAO {
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectMember");
-		
+		System.out.println(m);
 		try {
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, m.getUserId());
-			pstmt.setString(2, m.getUserPssword());
+			pstmt.setString(2, m.getUserPassword());
+			
+			// 회원
+			rset = pstmt.executeQuery();
 			
 			System.out.println("result 조회 전 : " + result);
 			
 			if(rset.next()) {
 				result = new Member();
 				
-				result.setUserId(m.getUserId());
-				result.setUserPssword(m.getUserPssword());
-				result.setUserName(rset.getString("userName"));
+				result.setUserId(rset.getString("UserId"));
+				result.setUserPassword(rset.getString("UserPassword"));
+				result.setUserName(rset.getString("UserName"));
 				result.setGender(rset.getString("Gender"));
 				result.setUserAge(rset.getInt("UserAge"));
 				result.setUserPhone(rset.getString("UserPhone"));
 				result.setAddress(rset.getString("Address"));
 				
 			}
-			System.out.println("result 조회 후 : " +result);
+			System.out.println("result 조회 후 : " + result);
 			
 		} catch (SQLException e) {
 			
@@ -105,7 +108,7 @@ public class MemberDAO {
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, m.getUserPssword());
+			pstmt.setString(1, m.getUserPassword());
 			pstmt.setInt(2, m.getUserAge() );
 			pstmt.setString(3, m.getUserPhone());
 			pstmt.setString(4, m.getAddress());

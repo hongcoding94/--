@@ -13,7 +13,7 @@ import hide.MemberSystem.model.vo.Member;
 
 @WebServlet("/login.do")
 public class loginMember extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1313L;
   
     public loginMember() { super(); }
 
@@ -21,11 +21,11 @@ public class loginMember extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String userId = request.getParameter("userId");
-		String userPwd = request.getParameter("userPwd");
-		String originPwd = (String)request.getAttribute("userPassWord");
+		String userPwd = request.getParameter("userPassWord");
+		String originPwd = (String)request.getAttribute("originPwd");
 		
-		System.out.println("원본 비밀번호 : " + userPwd);
-		System.out.println("암호화 비밀번호 : " + originPwd);
+		System.out.println("회원 비밀번호 : " + userPwd);
+		System.out.println("회원 확인용 비밀번호 : " + originPwd);
 		
 		Member m = new Member(userId, userPwd);
 				

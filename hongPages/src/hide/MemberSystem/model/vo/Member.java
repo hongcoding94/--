@@ -8,7 +8,7 @@ public class Member implements Serializable {
 	
 	private int userNo;
 	private String userId;
-	private String userPssword;
+	private String userPassword;
 	private String userName;
 	private String userPhone;
 	private String Address;
@@ -17,12 +17,12 @@ public class Member implements Serializable {
 	
 	public Member() { super(); }
 
-	public Member(int userNo, String userId, String userPssword, String userName, String userPhone, String address,
+	public Member(int userNo, String userId, String userPassword, String userName, String userPhone, String address,
 			int userAge, String gender) {
 		super();
 		this.userNo = userNo;
 		this.userId = userId;
-		this.userPssword = userPssword;
+		this.userPassword = userPassword;
 		this.userName = userName;
 		this.userPhone = userPhone;
 		Address = address;
@@ -31,17 +31,17 @@ public class Member implements Serializable {
 	}
 	
 
-	public Member(String userId, String userPssword) {
+	public Member(String userId, String userPassword) {
 		super();
 		this.userId = userId;
-		this.userPssword = userPssword;
+		this.userPassword = userPassword;
 	}
 
-	public Member(String userId, String userPssword, String userName, String userPhone, String address, int userAge,
+	public Member(String userId, String userPassword, String userName, String userPhone, String address, int userAge,
 			String gender) {
 		super();
 		this.userId = userId;
-		this.userPssword = userPssword;
+		this.userPassword = userPassword;
 		this.userName = userName;
 		this.userPhone = userPhone;
 		Address = address;
@@ -51,7 +51,7 @@ public class Member implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Member [userNo=" + userNo + ", userId=" + userId + ", userPssword=" + userPssword + ", userName="
+		return "Member [userNo=" + userNo + ", userId=" + userId + ", userPassword=" + userPassword + ", userName="
 				+ userName + ", userPhone=" + userPhone + ", Address=" + Address + ", userAge=" + userAge + ", gender="
 				+ gender + "]";
 	}
@@ -68,8 +68,8 @@ public class Member implements Serializable {
 		return userId;
 	}
 
-	public String getUserPssword() {
-		return userPssword;
+	public String getUserPassword() {
+		return userPassword;
 	}
 
 	public String getUserName() {
@@ -100,8 +100,8 @@ public class Member implements Serializable {
 		this.userId = userId;
 	}
 
-	public void setUserPssword(String userPssword) {
-		this.userPssword = userPssword;
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
 
 	public void setUserName(String userName) {
