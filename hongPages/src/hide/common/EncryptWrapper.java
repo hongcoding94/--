@@ -1,4 +1,4 @@
-package com.kh.jsp.common;
+package hide.common;
 
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
@@ -18,7 +18,7 @@ public class EncryptWrapper extends HttpServletRequestWrapper {
 	public String getParameter(String name) {
 		// 사용자가 입력한 값을 받아오는 메소드
 
-		if (name != null && name.equals("userPwd")) {
+		if (name != null && name.equals("userPassWord")) {
 			// 암호화 코드 실행
 			return getSHA512(super.getParameter(name));
 

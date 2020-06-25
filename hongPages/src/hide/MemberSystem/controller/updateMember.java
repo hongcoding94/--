@@ -26,7 +26,7 @@ public class updateMember extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		Member m = (Member)session.getAttribute("member");
 		
-		m.setUserPssword(pwd);
+		m.setUserPassword(pwd);
 		m.setUserAge(age);
 		m.setUserPhone(phone);
 		m.setAddress(address);

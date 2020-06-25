@@ -62,7 +62,8 @@ public class MemberDAO {
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectMember");
-		System.out.println(m);
+		//System.out.println(m);
+		
 		try {
 			pstmt = con.prepareStatement(sql);
 			
@@ -78,8 +79,8 @@ public class MemberDAO {
 				result = new Member();
 				
 				result.setUserId(rset.getString("UserId"));
-				result.setUserPassword(rset.getString("UserPassword"));
-				result.setUserName(rset.getString("UserName"));
+				result.setUserPassword(m.getUserPassword());
+				result.setUserName(m.getUserName());
 				result.setGender(rset.getString("Gender"));
 				result.setUserAge(rset.getInt("UserAge"));
 				result.setUserPhone(rset.getString("UserPhone"));
@@ -89,7 +90,6 @@ public class MemberDAO {
 			System.out.println("result 조회 후 : " + result);
 			
 		} catch (SQLException e) {
-			
 			e.printStackTrace();
 			throw new Exception("[DAO에러] : " +e.getMessage());
 			
