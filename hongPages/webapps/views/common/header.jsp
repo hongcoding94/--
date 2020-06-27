@@ -17,20 +17,20 @@
 
 						<%if ( m == null ) { %>
 						<li style="margin-left: auto;"><a
-							class="link" href="/hongPages/views/common/login/loginindex.jsp"
+							class="link" href="/hongPages/views/login/loginindex.jsp"
 							aria-haspopup="true" aria-expanded="false"
 							data-target="#loginFormBtnGo"
-							style="display: inline; color: white;"> 로그인 </a></li>
+							style="display: inline; color: white; font-size:14px;"> 로그인 </a></li>
 						
 						<% } else { %>
 						
 						<li class="nav-item dropdown" style="margin-left: auto;">
 							
-						<a class="nav-link" style="display:inline; color: white;"><b><%= m.getUserName() %></b>님 환영합니다.</a>
+						<a class="nav-link" style="display:inline; color: white;  font-size:14px;"><b><%= m.getUserName() %></b>님 환영합니다.</a>
 							 <a class="nav-link" href="#"
-							style="display:inline; color: white;" onclick="changeInfo();">마이페이지
+							style="display:inline; color: white; font-size:14px;" onclick="changeInfo();">마이페이지
 						</a> <a class="nav-link" href="#"
-							style="display:inline; color: white;" onclick="logoutBtn();">로그아웃
+							style="display:inline; color: white; font-size:14px;" onclick="logoutBtn();">로그아웃
 						</a>
 
 						</li>
@@ -93,9 +93,20 @@
 	</ul>
 	
 	<script>
-	
+	<!-- 로그인 홈으로 -->
 	function logoutBtn(){
-		location.href="/hongPages/logout.do";
+			
+			var conf = confirm('떠나실건가요..........?')
+
+			if(conf == true) {
+				location.href="/hongPages/logout.do";
+			} else {
+				return false;
+			}
+	}	
+	<!-- 회원정보 수정홈으로 이동 -->
+	function changeInfo(){
+		location.href="/hongPages/views/login/loginupdate.jsp";
 	}	
 	
 	</script>

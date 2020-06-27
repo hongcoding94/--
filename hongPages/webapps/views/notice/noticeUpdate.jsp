@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="hide.notice.model.vo.*" %>
-    <% Notice n = (Notice) request.getAttribute("notice"); %>
+    
+    <%
+    	Notice n = (Notice) request.getAttribute("notice"); 
+    %>
+
 <!DOCTYPE html>
 <html>
 <head>

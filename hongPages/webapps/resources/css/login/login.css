@@ -97,4 +97,6 @@ body {
   -o-object-position: left;
      object-position: left; }
 
-/*# sourceMappingURL=login.css.map */
+span{
+	color:gray;
+}

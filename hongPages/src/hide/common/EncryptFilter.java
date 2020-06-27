@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import hide.common.EncryptWrapper;
 
 
-@WebFilter({"/mInsert.do", "/login.do", "/mUpdate.do, /idDup.do "})
+@WebFilter({"/mInsert.do", "/login.do", "/mUpdate.do"})
 public class EncryptFilter implements Filter {
 
  

@@ -18,11 +18,12 @@ public class updateMember extends HttpServlet {
     public updateMember() { super(); }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pwd = request.getParameter("userPassword");
+		String pwd = request.getParameter("userPassWord");
 		int age = Integer.parseInt(request.getParameter("userAge"));
-		String phone = request.getParameter("tel1") + "-" + request.getParameter("tel2") + "-" +request.getParameter("tel3");
-		String address = request.getParameter("zipCode") + ", " + request.getParameter("address1") + ", " + request.getParameter("address2");
+		String phone = request.getParameter("userPhone");
+		String address = request.getParameter("address");
 		
+		/* 회원이 누구인지 구분을 줄 수 있도록 ID 가져오기*/ 
 		HttpSession session = request.getSession(false);
 		Member m = (Member)session.getAttribute("member");
 		

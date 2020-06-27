@@ -28,7 +28,7 @@ public class MemberDAO {
 	}
 
 	public int insertMember(Connection con, Member m) throws Exception {
-		int result =0;
+		int result = 0;
 		PreparedStatement pstmt = null;
 		String sql =prop.getProperty("insertMember");
 		
@@ -38,10 +38,10 @@ public class MemberDAO {
 			pstmt.setString(1, m.getUserId());
 			pstmt.setString(2, m.getUserPassword());
 			pstmt.setString(3, m.getUserName());
-			pstmt.setString(4, m.getGender());
-			pstmt.setInt(5, m.getUserAge());
-			pstmt.setString(6, m.getUserPhone());
-			pstmt.setString(7, m.getAddress());
+			pstmt.setString(4, m.getUserPhone());
+			pstmt.setString(5, m.getAddress());
+			pstmt.setInt(6, m.getUserAge());
+			pstmt.setString(7, m.getGender());
 			
 			result = pstmt.executeUpdate();
 			

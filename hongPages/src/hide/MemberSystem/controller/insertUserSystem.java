@@ -1,7 +1,5 @@
 package hide.MemberSystem.controller;
 
-import java.io.Serializable;
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -25,20 +23,16 @@ public class insertUserSystem extends HttpServlet {
 		response.setContentType("text/html; chaset=utf-8");
 		
 		String userId = request.getParameter("userId");
-		String userPwd = request.getParameter("userPassword");
+		String userPwd = request.getParameter("userPassWord");
 		String userName = request.getParameter("userName");
 		String gender = request.getParameter("gender");
-		int age = Integer.parseInt(request.getParameter("age"));
+		int age = Integer.parseInt(request.getParameter("userAge"));
 		
-		String Phone = request.getParameter("tel1") + "-"
-						+ request.getParameter("tel2") + "-"
-						+ request.getParameter("tel3");
+		String Phone = request.getParameter("userPhone");
 		
-		String address = request.getParameter("zipCode") + ", "
-					+ request.getParameter("address1") + ", "
-					+ request.getParameter("address2");
+		String address = request.getParameter("address");
 		
-		Member m = new Member(userId, userPwd, userName, gender, Phone, age, address);
+		Member m = new Member(userId, userPwd, userName, Phone, address, age, gender);
 		
 		System.out.println("가입 정보 확인합니다 : " + m);
 		
@@ -47,12 +41,13 @@ public class insertUserSystem extends HttpServlet {
 		try {
 			ms.insertMember(m);
 			System.out.println("회원가입이 성공하셨습니다!");
-			response.sendRedirect("index.jsp");
+			/* 성공시 로그인 페이지로 다시 돌아가기 */
+			response.sendRedirect("/hongPages/views/login/loginindex.jsp");
 			
 		} catch (Exception e) {
 			
 			System.out.println("회원가입이 실패하셨습니다.");
-			RequestDispatcher view = request.getRequestDispatcher("views/common/eerorPage.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
 			
 			request.setAttribute("error-msg", "회원가입 실패하였습니다.");
 			request.setAttribute("exception", e);

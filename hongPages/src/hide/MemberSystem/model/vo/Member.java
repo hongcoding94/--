@@ -25,7 +25,7 @@ public class Member implements Serializable {
 		this.userPassword = userPassword;
 		this.userName = userName;
 		this.userPhone = userPhone;
-		Address = address;
+		this.Address = address;
 		this.userAge = userAge;
 		this.gender = gender;
 	}
@@ -44,7 +44,7 @@ public class Member implements Serializable {
 		this.userPassword = userPassword;
 		this.userName = userName;
 		this.userPhone = userPhone;
-		Address = address;
+		this.Address = address;
 		this.userAge = userAge;
 		this.gender = gender;
 	}
