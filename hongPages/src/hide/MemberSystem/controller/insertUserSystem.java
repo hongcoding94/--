@@ -55,8 +55,42 @@ public class insertUserSystem extends HttpServlet {
 			view.forward(request, response);
 		}
 		
-	}
+		/*
+		if(m != null) {
+			try {
+				ms.insertMember(m);
+				System.out.println("회원가입이 성공하셨습니다!");
+				/* 성공시 로그인 페이지로 다시 돌아가기 
+				response.sendRedirect("/hongPages/views/login/loginindex.jsp");
+				
+			} catch (Exception e) {
+				
+				System.out.println("회원가입이 실패하셨습니다.");
+				RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+				
+				request.setAttribute("error-msg", "회원가입 실패하였습니다.");
+				request.setAttribute("exception", e);
+				
+				view.forward(request, response);
+			}
+		} else {
+			try(){
+				
+			}catch(Exception e) {
+			/* 만약 회원가입의 정보가 null값이 발생 되었을때 500error 발생을 errorPage로 잡는 방식
+			System.out.println("회원 정보기입 누락되었습니다.");
+			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+			
+			request.setAttribute("error-msg", "누락된 부분이 있습니다.");
+			request.setAttribute("exception", e);
+			
+			view.forward(request, response);
+			}
+		}
+		*/
 		
+	}
+	
 		
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

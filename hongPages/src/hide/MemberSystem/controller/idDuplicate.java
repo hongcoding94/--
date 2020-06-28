@@ -18,7 +18,7 @@ public class idDuplicate extends HttpServlet {
     public idDuplicate() { super(); }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("userId");
+		String id = request.getParameter("useridAX");
 		MemberService ms = new MemberService();
 		
 		int result = ms.idDupCheck(id);

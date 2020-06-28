@@ -78,13 +78,13 @@ public class MemberDAO {
 				result = new Member();
 				
 				
-				result.setUserId(rset.getString("UserId"));
-				result.setUserPassword(rset.getString("UserPassword"));
-				result.setUserName(rset.getString("UserName"));
-				result.setUserPhone(rset.getString("UserPhone"));
-				result.setAddress(rset.getString("Address"));
-				result.setUserAge(rset.getInt("UserAge"));
-				result.setGender(rset.getString("Gender"));
+				result.setUserId(rset.getString("userId"));
+				result.setUserPassword(rset.getString("userPassWord"));
+				result.setUserName(rset.getString("userName"));
+				result.setUserPhone(rset.getString("userPhone"));
+				result.setAddress(rset.getString("address"));
+				result.setUserAge(rset.getInt("userAge"));
+				result.setGender(rset.getString("gender"));
 				
 			}
 			System.out.println("result 조회 후 : " + result);
