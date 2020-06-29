@@ -61,7 +61,7 @@ public class noticeSearch extends HttpServlet {
 		
 		list = ns.searchNotice(condition, keyword, currentPage, limit);
 		
-		String page = "";
+		String page = "/hongPages/views/notice/noticeList.jsp";
 		
 		if(list != null) {
 			

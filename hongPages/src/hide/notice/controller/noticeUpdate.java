@@ -29,7 +29,7 @@ public class noticeUpdate extends HttpServlet {
 		
 		try {
 			new NoticeService().updateNotice(n);
-			response.sendRedirect("selectList.do");
+			response.sendRedirect("searchfreeBoard.do");
 			
 		} catch (Exception e) {
 			request.setAttribute("exception", e);

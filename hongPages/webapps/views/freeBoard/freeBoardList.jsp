@@ -111,6 +111,9 @@
 							<option value="content">내용</option>
 						</select> <input type="text" name="" id="" /> <input type="submit"
 							value="검색하기" />
+							<% if(m != null){ %>
+							<button onclick="location.href='/hongPages/views/notice/noticeInsertFrom.jsp'">작성하기</button>
+							<% } %>
 					</div>
 				</div>
 			</div>
@@ -157,8 +160,8 @@
 		}).mouseout(function(){
 			$(this.parent().css({"background" : "white"}));
 		}).click(function(){
-			var mno = $(this).parent().children().eq(0).text();
-		locatiofb.href="<%=request.getContextPath()%>/selectOne.do?mno=" +mno;
+			var fno = $(this).parent().children().eq(0).text();
+		locatiofb.href="<%=request.getContextPath()%>/selectOne.do?fno=" +fno;
 		});
 	});
 	

@@ -1,3 +1,5 @@
+<%@page import="java.sql.Date"%>
+<%@page import="oracle.sql.DATE"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*, hide.notice.model.vo.*"%>
 
@@ -35,26 +37,29 @@
 	<%@include file="/views/common/header.jsp"%>
 
 	<div class="row">
-		<form action="<%= request.getContextPath() %>/mInsert.do"
+		<form action="<%= request.getContextPath() %>/nInsert.do"
 			method="post">
 			<table align="center">
 				<tr>
 					<td>제목</td>
-					<td colspan="3"><input type="text" size="50" name="title"></td>
+					<td colspan="3"><input type="text" size="50" name="Ftitle"></td>
 				</tr>
 				<tr>
 					<td><br></td>
 				</tr>
 				<tr>
 					<td>작성자</td>
-					<td><input type="text" name="writer" value="작성"
+					<td><input type="text" name="userId" value="<%= m.getUserId() %>"
 						readonly="readonly"></td>
+						
+					<td>날짜</td>
+					<td><input type="date" name="date" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<td>내용</td>
 				</tr>
 				<tr>
-					<td colspan="4"><textarea name="content" cols="60" rows="15"
+					<td colspan="4"><textarea name="Fcontent" cols="60" rows="15"
 							style="resize: none;"></textarea></td>
 				</tr>
 			</table>
@@ -63,16 +68,27 @@
 				<button type="submit">등록하기</button>
 				&nbsp;&nbsp;
 				<button type="reset"
-					onclick="location.href='/baseball/views/notice/noticeList.jsp'">취소하기</button>
+					onclick="location.href='/hongPages/views/notice/noticeList.jsp'">취소하기</button>
 
 			</div>
 
 		</form>
-
 		<aside class="col-3"></aside>
 		<section class="col-6"></section>
 		<aside class="cpl-3"></aside>
-
+		<script>
+		$( function() {
+		    var now = new Date();
+		    var month = (now.getMonth() + 1);               
+		    var day = now.getDate();
+		    if (month < 10) 
+		        month = "0" + month;
+		    if (day < 10) 
+		        day = "0" + day;
+		    var today = now.getFullYear() + '-' + month + '-' + day;
+		    $('[name=date]').val(today);
+		});
+		</script>
 		<%@include file="/views/common/footer.jsp"%>
 	</div>
 </body>

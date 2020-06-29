@@ -112,6 +112,9 @@
 							<option value="content">내용</option>
 						</select> <input type="text" name="" id="" /> <input type="submit"
 							value="검색하기" />
+							<% if(m != null && m.getUserId().equals("admin")){ %>
+							<button onclick="location.href='/hongPages/views/notice/noticeInsertFrom.jsp'">작성하기</button>
+							<% } %>
 					</div>
 				</div>
 			</div>

@@ -49,7 +49,7 @@ public class freeBoardInsert extends HttpServlet {
 	
 	try {
 		fs.insertFree(fb);
-		response.sendRedirect("selectFree.do");
+		response.sendRedirect("searchfreeBoard.do");
 		
 	} catch (Exception e) {
 		request.setAttribute("exception", e);

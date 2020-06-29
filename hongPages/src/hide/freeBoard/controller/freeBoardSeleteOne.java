@@ -24,12 +24,12 @@ public class freeBoardSeleteOne extends HttpServlet {
 		try {
 			FreeBoard fb = fs.selectOne(fno);
 			request.setAttribute("freeBoard", fb);
-			page = "";
+			page = "views/freeBoard/freeBoardDetail.jsp";
 			
 		} catch (Exception e) {
 			request.setAttribute("exception", e);
 			request.setAttribute("error-msg", "자유게시판 실패");
-			page = "";
+			page = "/views/common/errorPage.jsp";
 
 		}finally {
 			request.getRequestDispatcher(page).forward(request, response);

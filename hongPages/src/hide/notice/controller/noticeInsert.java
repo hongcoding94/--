@@ -54,8 +54,8 @@ public class noticeInsert extends HttpServlet {
 		
 		try {
 			ns.insertNotice(n);
-			response.sendRedirect("selectList.do");
-		
+			response.sendRedirect("searchNotice.do");
+			
 		}catch(Exception e) {
 			request.setAttribute("exception", e);
 			request.setAttribute("error-msg", "공지사항 등록 실패!");

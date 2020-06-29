@@ -57,7 +57,7 @@ public class FreeDAO {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("insertFree");
+		String sql = prop.getProperty("updateFree");
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -102,7 +102,7 @@ public class FreeDAO {
 	public int updateReadCount(Connection con, int fno) throws Exception {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("updateFree");
+		String sql = prop.getProperty("updateReadCount");
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -200,17 +200,17 @@ public class FreeDAO {
 		ResultSet rset = null;
 		
 		String sql = null;
-		 switch(condition) {
-		 case "writer" : 
-				sql = prop.getProperty("countWriterFree");
-				break;
-			case "tilte" :
-				sql = prop.getProperty("countTitleFree");
-				break;
-			case "content" :
-				sql = prop.getProperty("countContentFree");
-				break;
-			}
+		switch(condition) {
+		case "writer" : 
+			sql = prop.getProperty("searchWriterFree");
+			break;
+		case "tilte" :
+			sql = prop.getProperty("searchTitleFree");
+			break;
+		case "content" :
+			sql = prop.getProperty("searchContentFree");
+			break;
+		}
 		  
 		  try {
 			  pstmt = con.prepareStatement(sql);

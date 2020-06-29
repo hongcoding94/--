@@ -40,21 +40,26 @@
 			<table align="center">
 				<tr>
 					<td>제목</td>
-					<td colspan="3"><input type="text" size="50" name="title"></td>
+					<td colspan="3"><input type="text" size="50" name="Ftitle"></td>
 				</tr>
 				<tr>
 					<td><br></td>
 				</tr>
+				
 				<tr>
 					<td>작성자</td>
-					<td><input type="text" name="writer" value="작성"
+					<td><input type="text" name="userId" value="<%= m.getUserId() %>"
 						readonly="readonly"></td>
+						
+					<td>날짜</td>
+					<td><input type="date" name="date" readonly="readonly"></td>
 				</tr>
+				
 				<tr>
 					<td>내용</td>
 				</tr>
 				<tr>
-					<td colspan="4"><textarea name="content" cols="60" rows="15"
+					<td colspan="4"><textarea name="Fcontent" cols="60" rows="15"
 							style="resize: none;"></textarea></td>
 				</tr>
 			</table>
