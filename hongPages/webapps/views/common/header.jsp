@@ -59,19 +59,23 @@
 
 		<li><a href="/hongPages/searchNotice.do">개발자 노트</a></li>
 
-		<li><a href="#"> 자유 게시글 </a>
-			<ul>
-				<li><a href="#">불편을<br>드려죄송합니다<br>빠른시일내에<br>찾아뵙겠습니다.
-				</a></li>
-			</ul></li>
+		<li>
+			<a href="/hongPages/searchfreeBoard.do"> 자유 게시글 </a>
+		</li>
 
 		<li><a href="#"> 홍쓰 추천 </a>
+			<!-- 
 			<ul>
 				<li><a href="#">추천 음식</a></li>
 				<li><a href="#">추전 장소</a></li>
 				<li><a href="#">추천 여행</a></li>
 				<li><a href="#">추천 레져스포츠</a></li>
-			</ul></li>
+			</ul>
+			 -->	
+			<ul>
+				<li><a href="#">불편을<br>드려죄송합니다<br>빠른시일내에<br>찾아뵙겠습니다.</a></li>
+			</ul>
+		</li>
 
 		<li><a href="#">개발자 프로필</a></li>
 

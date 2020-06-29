@@ -122,4 +122,9 @@ public class NoticeService {
 
 		return list;
 	}
+
+	public void deleteFree(int fno) {
+		
+		
+	}
 }

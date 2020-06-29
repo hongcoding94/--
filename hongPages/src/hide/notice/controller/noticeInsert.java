@@ -39,7 +39,7 @@ public class noticeInsert extends HttpServlet {
 			for(int i=0; i<dateArr.length; i++) {
 				intArr[i] = Integer.parseInt(dateArr[i]);
 			}
-			writeDate = new Date(new GregorianCalendar( intArr[0], intArr[1]-1, intArr[2]).getTimeInMillis());
+			writeDate = new Date(new GregorianCalendar(intArr[0], intArr[1]-1, intArr[2]).getTimeInMillis());
 			
 		}        
 		

@@ -5,7 +5,7 @@ import java.sql.Date;
 
 public class Notice implements Serializable  {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 4232L;
 
 		private int Mno;
 		private String Mtitle;
