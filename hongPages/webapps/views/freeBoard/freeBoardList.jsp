@@ -112,7 +112,7 @@
 						</select> <input type="text" name="" id="" /> <input type="submit"
 							value="검색하기" />
 							<% if(m != null){ %>
-							<button onclick="location.href='/hongPages/views/notice/noticeInsertFrom.jsp'">작성하기</button>
+							<button onclick="location.href='/hongPages/views/freeBoard/freeBoardInsertFrom.jsp'">작성하기</button>
 							<% } %>
 					</div>
 				</div>
@@ -161,7 +161,7 @@
 			$(this.parent().css({"background" : "white"}));
 		}).click(function(){
 			var fno = $(this).parent().children().eq(0).text();
-		locatiofb.href="<%=request.getContextPath()%>/selectOne.do?fno=" +fno;
+		location.href="<%=request.getContextPath()%>/selectOne.do?fno=" +fno;
 		});
 	});
 	

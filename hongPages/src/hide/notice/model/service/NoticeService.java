@@ -127,4 +127,13 @@ public class NoticeService {
 		
 		
 	}
+
+	public Notice updateView(int mno) throws Exception {
+		con = getConnection();
+		Notice n = nDAO.selectOne(con, mno);
+		
+		close(con);
+		
+		return n;
+	}
 }

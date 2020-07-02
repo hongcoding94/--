@@ -104,10 +104,10 @@
 				<div align="center">
 					
 					<br /> <br /> <br /> <br />
-					<button class="rollbtn" onclick="location.href='searchNotice.do'">메뉴로 돌아가기</button>
+					<button class="rollbtn" onclick="location.href='/hongPages/searchNotice.do'">메뉴로 돌아가기</button>
 
 					<% if( m != null && m.getUserId().equals("admin")) { %>
-						<button onclick="location.href='nUpView.no?nno=<%=n.getMno()%>'">수정하기</button>
+						<button type="button" onclick="location.href='/hongPages/nUpView.do?mno=<%=n.getMno()%>'">수정하기</button>
 					<% } %>
 				</div>
 		</div>

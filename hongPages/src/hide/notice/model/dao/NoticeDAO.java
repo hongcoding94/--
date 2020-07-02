@@ -118,13 +118,14 @@ public class NoticeDAO {
 		
 		int result = 0;
 		PreparedStatement pstmt=null;
-		String sql = prop.getProperty("dateNotice");
+		String sql = prop.getProperty("insertNotice");
 		
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, n.getMtitle());
 			pstmt.setString(2, n.getMcontent());
 			pstmt.setInt(3, n.getMno());
+			pstmt.setDate(4, n.getMdate());
 			
 			result = pstmt.executeUpdate();
 			

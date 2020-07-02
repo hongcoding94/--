@@ -42,7 +42,7 @@
 			<table align="center">
 				<tr>
 					<td>제목</td>
-					<td colspan="3"><input type="text" size="50" name="Ftitle"></td>
+					<td colspan="3"><input type="text" size="50" name="mtitle"></td>
 				</tr>
 				<tr>
 					<td><br></td>
@@ -59,7 +59,7 @@
 					<td>내용</td>
 				</tr>
 				<tr>
-					<td colspan="4"><textarea name="Fcontent" cols="60" rows="15"
+					<td colspan="4"><textarea name="mcontent" cols="60" rows="15"
 							style="resize: none;"></textarea></td>
 				</tr>
 			</table>
