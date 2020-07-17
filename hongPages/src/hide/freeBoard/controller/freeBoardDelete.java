@@ -24,7 +24,7 @@ public class freeBoardDelete extends HttpServlet {
 	
 	try {
 		fb.deleteFree(fno);
-		response.sendRedirect("selectFree.do");
+		response.sendRedirect("searchfreeBoard.do");
 
 		} catch (Exception e) {
 			request.setAttribute("exception", e);

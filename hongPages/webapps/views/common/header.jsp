@@ -10,9 +10,9 @@
 	<!-- 회원바 -->
 <div class="row">
 	<nav class="top-bar navbar-expand-sm bg-secondary" id="test1">
-		<div class="container">
+		<div class="container text-right">
 			<div class="row" id="vc">
-				<div class="col-12" id="test">
+				<div class="col-10" id="test">
 					<ul class="navbar-nav ml-auto">
 
 						<%if ( m == null ) { %>
@@ -20,7 +20,7 @@
 							class="link" href="/hongPages/views/login/loginindex.jsp"
 							aria-haspopup="true" aria-expanded="false"
 							data-target="#loginFormBtnGo"
-							style="display: inline; color: white; font-size:14px;"> 로그인 </a></li>
+							style="display: inline; width:100%; color: white; font-size:14px;"> 로그인 </a></li>
 						
 						<% } else { %>
 						
@@ -43,15 +43,16 @@
 	</div>
 
 
+	<div class="row">
 	<!-- 간판 사진 넣는 부분 -->
 	<a href="/hongPages/index.jsp"> <img id="index_img1"
-		src="/hongPages/resources/images/index/code_programming.jpg"
+		src="/hongPages/resources/images/index/index_img.jpg"
 		alt="간판입니다.">
 	</a>
 	<p id="pan1">
 		<b>진홍쓰의 홈페이지</b>
 	</p>
-
+	
 	<ul class="nav">
 		<li><a href="/hongPages/index.jsp">Home</a></li> 
 		&nbsp; &nbsp; &nbsp; &nbsp;
@@ -77,7 +78,7 @@
 			</ul>
 		</li>
 
-		<li><a href="#">개발자 프로필</a></li>
+		<li><a href="/hongPages/views/producer/producerView.jsp">개발자 프로필</a></li>
 
 		<li><a href="#">홈페이지 바로가기</a>
 			<ul>
@@ -95,12 +96,12 @@
 			</ul></li>
 
 	</ul>
-	
+	</div>
 	<script>
 	<!-- 로그인 홈으로 -->
 	function logoutBtn(){
 			
-			var conf = confirm('떠나실건가요..........?')
+			var conf = confirm('오늘 하루도 좋은하루되세요!!')
 
 			if(conf == true) {
 				location.href="/hongPages/logout.do";
@@ -108,7 +109,7 @@
 				return false;
 			}
 	}	
-	<!-- 회원정보 수정홈으로 이동 -->
+	
 	function changeInfo(){
 		location.href="/hongPages/views/login/loginupdate.jsp";
 	}	

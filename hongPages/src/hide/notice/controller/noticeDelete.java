@@ -22,12 +22,12 @@ public class noticeDelete extends HttpServlet {
 		
 		try {
 			ns.deleteNotice(mno);
-			response.sendRedirect("selectList.do");
+			response.sendRedirect("searchNotice.do");
 			
 		} catch (Exception e) {
 			request.setAttribute("exception", e);
 			request.setAttribute("error-msg", "공기사항 삭제 실패!");
-			request.getRequestDispatcher("view/common/errorPage.jsp").forward(request, response);
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	}
 

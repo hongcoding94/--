@@ -23,7 +23,7 @@ public class insertUserSystem extends HttpServlet {
 		response.setContentType("text/html; chaset=utf-8");
 		
 		String userId = request.getParameter("userId");
-		String userPwd = request.getParameter("userPassWord");
+		String userPwd = request.getParameter("password");
 		String userName = request.getParameter("userName");
 		String gender = request.getParameter("gender");
 		int age = Integer.parseInt(request.getParameter("userAge"));

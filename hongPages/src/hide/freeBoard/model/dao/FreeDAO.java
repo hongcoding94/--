@@ -37,8 +37,8 @@ public class FreeDAO {
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, fb.getFtitle());
-			pstmt.setString(2, fb.getFcontent());
-			pstmt.setString(3, fb.getFwriter());
+			pstmt.setString(2, fb.getFwriter());
+			pstmt.setInt(3, fb.getFcount());
 			pstmt.setDate(4, fb.getFdate());
 			
 			result = pstmt.executeUpdate();
@@ -125,7 +125,7 @@ public class FreeDAO {
 		FreeBoard fb = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectOneFree");
+		String sql = prop.getProperty("selectOne");
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -135,12 +135,12 @@ public class FreeDAO {
 			while(rset.next()) {
 				fb = new FreeBoard();
 				
-				fb.setFno(rset.getInt("fno"));
-				fb.setFtitle(rset.getString("ftitle"));
-				fb.setFcontent(rset.getString("fcontent"));
-				fb.setFwriter(rset.getString("fwriter"));
-				fb.setFcount(rset.getInt("fcount"));
-				fb.setFdate(rset.getDate("fdate"));
+				fb.setFno(rset.getInt("Fno"));
+				fb.setFtitle(rset.getString("Ftitle"));
+				fb.setFcontent(rset.getString("Fcontent"));
+				fb.setFwriter(rset.getString("Fwriter"));
+				fb.setFcount(rset.getInt("Fcount"));
+				fb.setFdate(rset.getDate("Fdate"));
 			}
 			
 		} catch (SQLException e) {
@@ -166,7 +166,7 @@ public class FreeDAO {
 		case "writer" : 
 			sql = prop.getProperty("countWriterFree");
 			break;
-		case "tilte" :
+		case "title" :
 			sql = prop.getProperty("countTitleFree");
 			break;
 		case "content" :
@@ -204,21 +204,21 @@ public class FreeDAO {
 		case "writer" : 
 			sql = prop.getProperty("searchWriterFree");
 			break;
-		case "tilte" :
+		case "title" :
 			sql = prop.getProperty("searchTitleFree");
 			break;
 		case "content" :
 			sql = prop.getProperty("searchContentFree");
 			break;
 		}
-		  
+		  System.out.println("condition(DAO) : " + condition);
 		  try {
 			  pstmt = con.prepareStatement(sql);
 			  
 			  int startRow = (currentPage - 1) * limit + 1;
 			  int endRow = startRow + limit - 1;
 			  
-			  pstmt.setString(1, keyword);
+			  pstmt.setString(1, keyword); // int 아니였나?
 			  pstmt.setInt(2, endRow);
 			  pstmt.setInt(3, startRow);			
 			  
@@ -243,6 +243,7 @@ public class FreeDAO {
 		  }finally{
 			  close(rset);
 			  close(pstmt);
+			  System.out.println("list(DAO) : " + list);
 		  }
 		  
 		  return list;

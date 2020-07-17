@@ -10,9 +10,6 @@
     <!-- 부트스트랩 css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <!-- js min -->
-<!--     <script src="/resources/js/jquery-3.5.1.min.js"></script>
- -->    
     <!-- 부트스트랩 js -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -124,21 +121,29 @@
    	<aside class="col-1"></aside>
    	</div>  
       
-    <!--  몸통part.2 부분 -->
+     
+    <div class="row">
+    
+    
+    </div>
+     
+      
+      
+    <!--  몸통part.3 부분 -->
     <div class="row">
         <aside class="col-1"></aside>
         <section class="col-10" style="margin:atuo;">
         <div class="row">
-       		<div class="col-6">
-       			<div id="map" style="width:500px;height:400px; margin:auto;"></div>
+       		<div class="col-7">
+       			<div id="map" style="width:100%;height:500px; margin:auto;"></div>
        		</div>
-       		<div class="col-4" style="margin:auto;">
+       		<div class="col-3" style="margin:auto;">
        				<h2>KH 정보 교육원</h2>
        				<p class="pen">연락처 : 02) 1544 - 9970</p>
        				<p class="pen">주소 : 서울특별시 강남구 강남구 테헤란로14길 6</p>
        				<p class="pen">영업 시간 : AM 09:00 - PM 22:00</p>
        				<p class="pen">지도강사님 : 유정훈 강사님</p>
-       				<p class="pen">제작자 : 정진홍 수강생</p>
+       				<p class="pen">개발자 : 정진홍 수강생</p>
        				<p class="pen">강의실 : 352강의실</p>
        		</div>
        		</div>
@@ -198,10 +203,21 @@
 	level: 3 //지도의 레벨(확대, 축소 정도)
 	};
    
-   // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+   // 지도를 표시할 div와 지도 옵션으로 지도를 생성합니다
    var map = new kakao.maps.Map(container, options); 
    
-    </script>
+   // 지도에 표시할 마커 생성
+   var markerPosition = new kakao.maps.LatLng(37.499220, 127.032796);
+   
+   var marker = new kakao.maps.Marker({
+	    position: markerPosition
+	});
+   
+   marker.setMap(map);
+  
+	
+   </script>
+    
     
     <!-- common 바닥 부분 -->
   <%@include file="views/common/footer.jsp"%>

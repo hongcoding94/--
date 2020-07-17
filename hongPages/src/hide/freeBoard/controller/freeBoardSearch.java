@@ -46,7 +46,6 @@ public class freeBoardSearch extends HttpServlet {
 		
 		int listCount = fs.getSelectListCount(condition, currentPage, limit, keyword);
 		
-		System.out.println("listCount : "+ listCount);
 		
 		maxPage = (int)((double)listCount/limit + 0.9);
 		
@@ -57,6 +56,10 @@ public class freeBoardSearch extends HttpServlet {
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
+		
+		System.out.print("\n currentPage : " + currentPage + " / "); 
+		System.out.print("maxPage : " + maxPage + " / " );
+		System.out.println("listCount : "+ listCount);
 		
 		
 		list = fs.searchfreeBoard(condition, keyword, currentPage, limit);

@@ -43,7 +43,7 @@ public class NoticeService {
 		
 		int result = nDAO.deleteNotice(con, mno);
 		
-		if(result >0) commit(con);
+		if(result > 0) commit(con);
 		else rollback(con);
 		
 		close(con);
@@ -101,12 +101,16 @@ public class NoticeService {
 		
 		if(condition != null && (condition.length()>0 && !condition.equals("null"))) {
 			result = nDAO.getSelectListCount(con, condition, keyword);
+			// System.out.println("result(select) : "+result);
+			// System.out.println("con : " + con);
+			// System.out.println("condttion : " + condition);
+			// System.out.println("keyword : " + keyword);
+			
 		}else {
-			
 			result = nDAO.getListCount(con);
-			
+			// System.out.println("result(List) : "+result);
 		}
-		
+		// System.out.println("result(마지막 최종) : " + result);
 		return result;
 	}
 

@@ -25,11 +25,11 @@ public class noticeInsert extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mtitle = request.getParameter("mtitle");
-		System.out.println(mtitle);
+		//System.out.println(mtitle);
 		String writer = request.getParameter("userId");
-		System.out.println(writer);
+		//System.out.println(writer);
 		String content = request.getParameter("mcontent");
-		System.out.println(content);
+		//System.out.println(content);
 		
 		String date = request.getParameter("date");
 		System.out.println("날짜 값 확인 : " + date);

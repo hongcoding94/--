@@ -83,12 +83,12 @@
 					<form action="/hongPages/mInsert.do">
 						<div class="form-group">
 							<label for="text">아이디</label> <input type="text" name="userId"
-								id="userId" class="form-control idCheck"
+								id="insertuserid" class="form-control idCheck"
 								placeholder="email@example.com">
 						</div>
 						<div class="form-group mb-4">
 							<label for="password">비밀번호</label> <input type="password"
-								name="passWord" class="form-control"
+								name="password" id="password" class="form-control"
 								placeholder="enter your passsword">
 						</div>
 						<div class="form-group mb-4">
@@ -147,40 +147,41 @@
   	    });
   	  });
   
-  	<!-- select 첫번째 옵션 사용불가 --->
   	$("select option[value*='---']").prop('disabled',true);
-  	
-  	<!-- 중복아이디 확인 -->
+
   	$(".idCheck").on('change', function(){
-		$.ajax({
-			url : '/hongPages/idDup.do' , 
-			type : 'post' , 
-			data : { useridAX : $(".idCheck").val() } , 
-			success : function(data){
-
-				console.log(data);
-				
-				// 결과가 0 이면 사용자 없음 : 가입 가능
-				//			    1 이면 1명 사용중 : 가입 불가
-				if( data == 0){
-					alert("사용 가능한 아이디입니다.");
-					$('.idCheck').css("background-color","skyblue");
-				} else {
-					alert("이미 사용 중인 아이디입니다.");
-					$('.idCheck').css("background-color","yellow");
+  		if($(".idCheck").val().trim().length > 0){
+			$.ajax({
+				url : '/hongPages/idDup.do' , 
+				type : 'post' , 
+				data : { useridAX : $(".idCheck").val() } , 
+				success : function(data){
+		
+					console.log(data);
+					
+					if( data == 0 ){
+						alert("사용 가능한 아이디입니다.");
+						$('.idCheck').css("background-color","skyblue");
+					} else {
+						alert("이미 사용 중인 아이디입니다.");
+						$('.idCheck').css("background-color","yellow");
+			  			$(".idCheck").focus();
+				}
+			} , error : function(){
+				console.log("체크 에러 발생.");
 			}
-		} , error : function(){
-			console.log("체크 에러 발생.");
-		}
-		});
+			}); 
+			
+  		} else {
+  			alert("아이디를 입력해주세요~!");
+  			$(".idCheck").val("");
+  			$(".idCheck").focus();
+  		}
 	});
-  	
-  	<!-- 회원창 null 방지 -->
-  	
 
-  	<!-- 비밀번호 확인(두개를 만든이유 : 어느쪽을 먼저 건들지 모르기 때문에 복합성으로 만든것) -->
+  	
   	$('input:password[name=check]').on('change', function (){			
-		var pw = $('#passWord').val();
+		var pw = $('#password').val();
 		var chk = $('#check').val();
 
 		if ( pw != '' && chk == '') { 
@@ -194,7 +195,7 @@
 	});
   	
   	$('input:password[name=passWord]').on('change', function (){			
-		var pw = $('#passWord').val();
+		var pw = $('#password').val();
 		var chk = $('#check').val();
 
 		if ( pw != '' && chk == '' ) { 
@@ -206,9 +207,7 @@
 			}
 		}
 	});
-  	
 	
-	<!-- 로그인을 못하는 경우에 관리자에게 연락을 할 수 있는 수단 -->
 	function msg() {
 		alert("불편을 드려죄송합니다. \n관리자에게 문의하세요!!");	
 	};

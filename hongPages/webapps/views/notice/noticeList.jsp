@@ -72,9 +72,9 @@
 	
 <% String pageURL =   request.getContextPath() + "/searchNotice.do?con=" + s.getCondition() + "&keyword=" + s.getKeyword() + "&currentPage="; %>
 		
-	<div class="row">
-		<aside class="col-2"></aside>
-		<section class="col-8">
+	<div class="row center">
+		<aside class="col-3"></aside>
+		<section class="col-6">
 			<br /> <br />
 			<div class="outer">
 				<br>
@@ -110,18 +110,21 @@
 							<option value="writer">작성자</option>
 							<option value="title">제목</option>
 							<option value="content">내용</option>
-						</select> <input type="text" name="" id="" /> <input type="submit"
-							value="검색하기" />
+						</select> 
+						<input type="text" id="keyword" placeholder="키워드를 입력하세요!"/> 
+						<button type="button" onclick="search();">검색하기</button>
+						
 							<% if(m != null && m.getUserId().equals("admin")){ %>
-							<button onclick="location.href='/hongPages/views/notice/noticeInsertFrom.jsp'">작성하기</button>
+						<button onclick="location.href='/hongPages/views/notice/noticeInsertFrom.jsp'">작성하기</button>
 							<% } %>
+							
 					</div>
 				</div>
 			</div>
 			<br />
 
 		</section>
-		<aside class="col-2"></aside>
+		<aside class="col-3"></aside>
 	</div>
 
 	
@@ -149,6 +152,7 @@
 			<%  } %>
 			<button onclick="location.href='<%= pageURL  + maxPage %>'">>></button>	
 		</div>
+		
 
 	<br />
 
@@ -163,9 +167,12 @@
 		}).click(function(){
 			var mno = $(this).parent().children().eq(0).text();
 		location.href="<%=request.getContextPath()%>/selectOne.do?mno=" +mno;
+			});
 		});
-	});
 	
+		function search(){
+			location.href="<%=request.getContextPath()%>/searchNotice.do?con="+$('#searchCondition').val()+"&keyword="+$('#keyword').val();
+		}	
 	</script>
 
 	<%@include file="/views/common/footer.jsp"%>

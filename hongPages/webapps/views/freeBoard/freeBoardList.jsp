@@ -37,14 +37,6 @@
 	integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 	crossorigin="anonymous"></script>
 
-<!-- index의 각각 css와 js 위치 -->
-<link rel="stylesheet"
-	href="/hongPages/resources/css/index/index_css.css">
-
-<!-- swiper dmo-->
-<link rel="stylesheet" href="/hongPages/resources/css/swiper.min.css">
-<script src="/hongPages/resources/js/swiper.min.js"></script>
-
 <!--  header css -->
 <link rel="stylesheet" href="/hongPages/resources/css/common/header.css">
 
@@ -72,8 +64,8 @@
 <% String pageURL =   request.getContextPath() + "/searchfreeBoard.do?con=" + s.getCondition() + "&keyword=" + s.getKeyword() + "&currentPage="; %>
 		
 	<div class="row">
-		<aside class="col-2"></aside>
-		<section class="col-8">
+		<aside class="col-3"></aside>
+		<section class="col-6">
 			<br /> <br />
 			<div class="outer">
 				<br>
@@ -109,8 +101,9 @@
 							<option value="writer">작성자</option>
 							<option value="title">제목</option>
 							<option value="content">내용</option>
-						</select> <input type="text" name="" id="" /> <input type="submit"
-							value="검색하기" />
+						</select> 
+						<input type="text" id="keyword" placeholder="키워드를 입력하세요!"/> 
+						<button type="button" onclick="search();">검색하기</button>
 							<% if(m != null){ %>
 							<button onclick="location.href='/hongPages/views/freeBoard/freeBoardInsertFrom.jsp'">작성하기</button>
 							<% } %>
@@ -120,16 +113,16 @@
 			<br />
 
 		</section>
-		<aside class="col-2"></aside>
+		<aside class="col-3"></aside>
 	</div>
 
 	
 <div class="pagingArea" align="center">
-			<button onclick="locatiofb.href='<%= pageURL %>1'"><<</button>
+			<button onclick="location.href='<%= pageURL %>1'"><<</button>
 			<%  if(currentPage <= 1){  %>
 			<button disabled><</button>
 			<%  }else{ %>
-			<button onclick="locatiofb.href='<%= pageURL  +(currentPage - 1) %>'"><</button>
+			<button onclick="location.href='<%= pageURL  +(currentPage - 1) %>'"><</button>
 			<%  } %>
 			
 			<% for(int p = startPage; p <= endPage; p++){
@@ -137,16 +130,16 @@
 			%>
 				<button disabled><%= p %></button>
 			<%      }else{ %>
-				<button onclick="locatiofb.href='<%= pageURL  +  p %>'"><%= p %></button>
+				<button onclick="location.href='<%= pageURL  +  p %>'"><%= p %></button>
 			<%      } %>
 			<% } %>
 				
 			<%  if(currentPage >= maxPage){  %>
 			<button disabled>></button>
 			<%  }else{ %>
-			<button onclick="locatiofb.href='<%= pageURL  +(currentPage + 1) %>'">></button>
+			<button onclick="location.href='<%= pageURL  +(currentPage + 1) %>'">></button>
 			<%  } %>
-			<button onclick="locatiofb.href='<%= pageURL  + maxPage %>'">>></button>	
+			<button onclick="location.href='<%= pageURL  + maxPage %>'">>></button>	
 		</div>
 
 	<br />
@@ -161,10 +154,14 @@
 			$(this.parent().css({"background" : "white"}));
 		}).click(function(){
 			var fno = $(this).parent().children().eq(0).text();
-		location.href="<%=request.getContextPath()%>/selectOne.do?fno=" +fno;
+		location.href="<%=request.getContextPath()%>/fSelectOne.do?fno=" +fno;
+			});
 		});
-	});
 	
+		function search(){
+			location.href="<%=request.getContextPath()%>/searchfreeBoard.do?con="+$('#searchCondition').val()+"&keyword="+$('#keyword').val();
+		}
+		
 	</script>
 
 	<%@include file="/views/common/footer.jsp"%>

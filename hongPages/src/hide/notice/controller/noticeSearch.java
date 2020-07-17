@@ -42,11 +42,10 @@ public class noticeSearch extends HttpServlet {
 		if(request.getParameter("currentPage") != null) {
 			currentPage
 			= Integer.parseInt(request.getParameter("currentPage"));
+			
 		}
 		
 		int listCount = ns.getSelectListCount(condition, currentPage, limit, keyword);
-		
-		System.out.println("listCount : "+ listCount);
 		
 		maxPage = (int)((double)listCount/limit + 0.9);
 		
@@ -57,6 +56,10 @@ public class noticeSearch extends HttpServlet {
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
+		
+		System.out.print("\n currentPage : " + currentPage + " / "); 
+		System.out.print("maxPage : " + maxPage + " / " );
+		System.out.println("listCount : " + listCount );
 				
 		
 		list = ns.searchNotice(condition, keyword, currentPage, limit);

@@ -17,14 +17,6 @@
 	integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 	crossorigin="anonymous"></script>
 
-<!-- index의 각각 css와 js 위치 -->
-<link rel="stylesheet"
-	href="/hongPages/resources/css/index/index_css.css">
-
-<!-- swiper dmo-->
-<link rel="stylesheet" href="/hongPages/resources/css/swiper.min.css">
-<script src="/hongPages/resources/js/swiper.min.js"></script>
-
 <!--  header css -->
 <link rel="stylesheet" href="/hongPages/resources/css/common/header.css">
 
@@ -67,16 +59,30 @@
 			<div align="center">
 				<button type="submit">등록하기</button>
 				&nbsp;&nbsp;
-				<button type="reset"
-					onclick="location.href='/hongPages/views/freeBoard/freeBoardList.jsp'">취소하기</button>
+				<button type="reset" onclick="freeHome();">취소하기</button>
 
 			</div>
 
 		</form>
 
-		<aside class="col-3"></aside>
-		<section class="col-6"></section>
-		<aside class="cpl-3"></aside>
+		<script>
+		$( function() {
+		    var now = new Date();
+		    var month = (now.getMonth() + 1);               
+		    var day = now.getDate();
+		    if (month < 10) 
+		        month = "0" + month;
+		    if (day < 10) 
+		        day = "0" + day;
+		    var today = now.getFullYear() + '-' + month + '-' + day;
+		    $('[name=date]').val(today);
+		});
+		
+		function freeHome(){
+			location.href="<%=request.getContextPath()%>/searchfreeBoard.do";
+		}
+		</script>
+	
 
 		<%@include file="/views/common/footer.jsp"%>
 	</div>

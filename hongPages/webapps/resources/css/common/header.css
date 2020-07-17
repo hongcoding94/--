@@ -9,13 +9,14 @@
 }
 
 #index_img1 {
-	height: 300px;
 	width: 100%;
+	height: 300px;
 }
 
 .nav {
 	background: gray;
 	list-style-type: none;
+	width: 100%;
 	height: 60px;
 	padding-left: 10px;
 	text-align: center;

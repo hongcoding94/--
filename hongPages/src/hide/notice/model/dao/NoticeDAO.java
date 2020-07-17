@@ -115,17 +115,16 @@ public class NoticeDAO {
 	}
 
 	public int updateNotice(Connection con, Notice n) throws Exception {
-		
 		int result = 0;
 		PreparedStatement pstmt=null;
-		String sql = prop.getProperty("insertNotice");
+		String sql = prop.getProperty("updateNotice");
 		
 		try {
 			pstmt = con.prepareStatement(sql);
+			
 			pstmt.setString(1, n.getMtitle());
 			pstmt.setString(2, n.getMcontent());
 			pstmt.setInt(3, n.getMno());
-			pstmt.setDate(4, n.getMdate());
 			
 			result = pstmt.executeUpdate();
 			
@@ -247,19 +246,18 @@ public class NoticeDAO {
 		ResultSet rset = null;
 		
 		String sql = null;
-		
 		switch(condition) {
 		case "writer" : 
 			sql = prop.getProperty("countWriterBoard");
 			break;
-		case "tilte" :
+		case "title" :
 			sql = prop.getProperty("countTitleBoard");
 			break;
 		case "content" :
-			sql = prop.getProperty("CountContentNotice");
+			sql = prop.getProperty("countContentBoard");
 			break;
 		}
-		
+		// System.out.println("condition(select) : " + condition);
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, keyword);
@@ -297,7 +295,7 @@ public class NoticeDAO {
 			  sql = prop.getProperty("searchContentNotice");
 			  break;
 		  }
-		  
+		 // System.out.println("condition(search) : " + condition);
 		  try {
 			  pstmt = con.prepareStatement(sql);
 			  

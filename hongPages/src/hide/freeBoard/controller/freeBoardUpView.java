@@ -10,35 +10,32 @@ import javax.servlet.http.HttpServletResponse;
 import hide.freeBoard.model.service.FreeService;
 import hide.freeBoard.model.vo.FreeBoard;
 
-@WebServlet("/fUpdate.do")
-public class freeBoardupdate extends HttpServlet {
+@WebServlet("/fUpView.do")
+public class freeBoardUpView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public freeBoardupdate() { super(); }
+
+    public freeBoardUpView() {super();}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String tilte = request.getParameter("Ftitle");
-		String content = request.getParameter("Fcontent");
 		int fno = Integer.parseInt(request.getParameter("Fno"));
-
-		System.out.println(tilte);
-		System.out.println(content);
-		System.out.println(fno);
 		
-		FreeBoard fb = new FreeBoard();
+		FreeService fs = new FreeService();
 		
-		fb.setFno(fno);
-		fb.setFcontent(content);
-		fb.setFtitle(tilte);
 		
 		try {
-			new FreeService().updateFreeBoard(fb);
-			response.sendRedirect("searchfreeBoard.do");
+			FreeBoard fb = fs.updateView(fno);
+			
+			request.setAttribute("FreeBoard", fb);
+			request.getRequestDispatcher("views/freeBoard/freeBoardUpdate.jsp").forward(request, response);
+			
 		} catch (Exception e) {
+			e.printStackTrace();
 			request.setAttribute("exception", e);
-			request.setAttribute("error-msg", "게시판 수정 실패!");
-			request.getRequestDispatcher("views/common/errorPage.jsp");
+			request.setAttribute("error-msg", "자유게시판 수정 실패!");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

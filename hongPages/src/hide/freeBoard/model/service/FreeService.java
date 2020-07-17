@@ -90,11 +90,25 @@ public class FreeService {
 		
 		if(condition != null && (condition.length()>0 && !condition.equals("null"))) {
 			list = fDAO.searchList(con,condition,keyword,currentPage, limit);
+			// System.out.println("con(search) : " + con);
+			// System.out.println("condition : " + condition);
+			// System.out.println("keyword : " + keyword); // 요거 문제네!
+			
 		}else {
 			list = fDAO.selectList(con,currentPage, limit);
+			// System.out.println("con(select) : " + con);
 		}
 
 		return list;
+	}
+
+	public FreeBoard updateView(int fno) throws Exception {
+		con = getConnection();
+		FreeBoard fb = fDAO.selectOne(con, fno);
+		
+		close(con);
+		
+		return fb;
 	}
 	
 	

@@ -1,4 +1,4 @@
-package com.kh.jsp.common;
+package hide.common;
 
 import java.io.File;
 import java.text.SimpleDateFormat;

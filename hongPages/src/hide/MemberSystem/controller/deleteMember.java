@@ -30,7 +30,7 @@ public class deleteMember extends HttpServlet {
 			response.sendRedirect("index.jsp");
 			
 		} catch (Exception e) {
-			request.setAttribute("error-msg", "회원 탈퇴 숮행중 에러 발생!");
+			request.setAttribute("error-msg", "회원 탈퇴 수행중 에러 발생!");
 			request.setAttribute("excption", e);
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}

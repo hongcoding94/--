@@ -21,10 +21,13 @@ public class freeBoardInsert extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String ftitle = request.getParameter("Ftitle");
+	// System.out.println(ftitle);
 	String fwriter = request.getParameter("userId");
+	// System.out.println(fwriter);
 	String fcontent = request.getParameter("Fcontent");
+	// System.out.println(fcontent);
 	
-	String date =request.getParameter("Fdate");
+	String date =request.getParameter("date");
 	System.out.println("날짜 값 확인 : " + date );
 	Date writeDate = new Date (new GregorianCalendar().getTimeInMillis());
 	

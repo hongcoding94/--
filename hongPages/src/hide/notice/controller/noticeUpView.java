@@ -24,13 +24,13 @@ public class noticeUpView extends HttpServlet {
 		try {
 			Notice n = ns.updateView(mno);
 			// response.sendRedirect("searchNotice.do");
-			System.out.println(n);
 			request.setAttribute("notice", n);
 			request.getRequestDispatcher("views/notice/noticeUpdate.jsp").forward(request, response);
 			
 		} catch (Exception e) {
+			System.out.println(e);
 			request.setAttribute("exception", e);
-			request.setAttribute("error-msg", "공기사항 삭제 실패!");
+			request.setAttribute("error-msg", "공지사항 삭제 실패!");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	

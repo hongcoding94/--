@@ -18,8 +18,12 @@ public class noticeUpdate extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String tilte = request.getParameter("mtitle");
+		System.out.println(tilte);
 		String content = request.getParameter("mcontent");
+		System.out.println(content);
 		int mno = Integer.parseInt(request.getParameter("mno"));
+		System.out.println(mno);
+		
 		
 		Notice n = new Notice();
 		
@@ -29,7 +33,7 @@ public class noticeUpdate extends HttpServlet {
 		
 		try {
 			new NoticeService().updateNotice(n);
-			response.sendRedirect("nUpView.do");
+			response.sendRedirect("searchNotice.do");
 			
 		} catch (Exception e) {
 			request.setAttribute("exception", e);
